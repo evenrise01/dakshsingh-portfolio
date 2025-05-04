@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 import Hero from "@/components/Hero";
 import { NavbarApp } from "@/components/NavbarApp";
-import Grid from "@/components/Grid";
 import { BentoFeatureGrid } from "@/components/BentoGrid";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
           <NavbarApp/>
           <Hero />
           <BentoFeatureGrid/>
-          {/* <Grid/> */}
+          <Projects/>
         </div>
       </main>
     </>
