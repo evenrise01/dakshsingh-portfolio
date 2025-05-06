@@ -84,52 +84,53 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
 
             {/* Right side - Content (mobile shows company details here) */}
-            <div className="relative pl-12 md:pl-4 w-full">
+            <div className="relative pr-4 pl-20 md:pl-4 w-full">
               {/* Mobile-only company details */}
-              <div className="md:hidden mb-6 flex flex-col gap-2">
-                <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
-                  {item.time}
-                </span>
-                <p className="text-lg font-semibold text-black dark:text-white/90">
-                  {item.jobTitle}
-                </p>
-                <a
-                  href={item.companyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-                >
-                  <img
-                    src={item.companyLogo}
-                    alt={`${item.companyName} Logo`}
-                    className="h-5 w-5 rounded-sm object-contain"
-                  />
-                  <span>{item.companyName}</span>
-                </a>
-                <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm">
-                  <MapPin size={16} />
-                  <span>{item.location}</span>
+              <div className="md:hidden mb-4 text-2xl block">
+                <div className="mt-2 flex flex-col items-start gap-y-2 text-sm font-light">
+                  <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
+                    {item.time}
+                  </span>
+                  <p className="text-lg font-semibold text-black dark:text-white/90">
+                    {item.jobTitle}
+                  </p>
+                  <a
+                    href={item.companyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                  >
+                    <img
+                      src={item.companyLogo}
+                      alt={`${item.companyName} Logo`}
+                      className="h-5 w-5 rounded-sm object-contain"
+                    />
+                    <span>{item.companyName}</span>
+                  </a>
+                  <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm">
+                    <MapPin size={16} />
+                    <span>{item.location}</span>
+                  </div>
                 </div>
               </div>
-              
               <div className="prose prose-sm dark:prose-invert max-w-none">
                 {item.content}
               </div>
             </div>
           </div>
         ))}
-        
+
         {/* Timeline line */}
         <div
           style={{ height: height + "px" }}
-          className="absolute left-6 md:left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-200 dark:via-neutral-700 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute top-0 left-8 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] md:left-8 dark:via-neutral-700"
         >
           <motion.div
             style={{
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-500 via-emerald-500 to-transparent rounded-full"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-pink-500 from-[0%] via-blue-500 via-[10%] to-transparent"
           />
         </div>
       </div>

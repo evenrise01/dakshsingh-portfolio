@@ -17,6 +17,7 @@ const AboutPage = () => {
           companyLink: "vercel.com",
           location: "London, UK - Remote",
           time: "2024 - Present",
+          companySummary: "Roboto Studio is a cutting-edge design agency specializing in building innovative web applications with a focus on user experience and performance.",
           content: (
             <div>
               <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
