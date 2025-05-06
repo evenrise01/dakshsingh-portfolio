@@ -1,3 +1,4 @@
+import { BackgroundCircles } from "@/components/kokonutui/background-circles";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -5,6 +6,7 @@ import { LampDemo } from "@/components/ui/lamp";
 import { Timeline } from "@/components/ui/timeline";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import React from "react";
+import GitHubCalendar from "./github-calendar";
 
 const AboutPage = () => {
     const data = [
@@ -212,9 +214,9 @@ const AboutPage = () => {
 
   return (
     <main>
-      {/* <LampDemo/> */}
       <div className="relative mx-auto max-w-6xl px-4 pt-28 pb-12 md:pt-36 md:pb-20">
         <h2 className="relative z-2 mb-10 text-4xl font-medium tracking-tight sm:text-5xl md:mb-12 md:text-6xl text-center">
+            
           <p className="mb-3 text-xs font-normal tracking-widest text-white/70 uppercase md:text-sm">
             More About Me
           </p>
@@ -289,6 +291,14 @@ const AboutPage = () => {
         </h2>
             <Timeline data={data}/>
         </section>
+
+        {/* Github Contributions */}
+        <div className="my-20 flex items-center justify-center gap-10 w-full opacity-90 flex-col lg:flex-row">
+        <h2 className="relative z-2 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl text-center mb-0 md:mb-0 lg:text-left lg:text-5xl">
+        <span>Github</span><AnimatedGradientText className="italic block">Contributions</AnimatedGradientText>
+        </h2>
+        <GitHubCalendar/>
+        </div>
       </div>
     </main>
   );

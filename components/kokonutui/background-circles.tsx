@@ -96,7 +96,7 @@ const AnimatedGrid = () => (
 
 export function BackgroundCircles({
     title = "Background Circles",
-    description = "Optional Description",
+    description = "",
     className,
     variant = "octonary",
 }: BackgroundCirclesProps) {
@@ -172,8 +172,7 @@ export function BackgroundCircles({
                     transition={{ delay: 0.2 }}
                 >
                     {description}
-                    <span className="mx-3 opacity-50">·</span>
-                    Kokonut UI
+                   
                 </motion.p>
             </motion.div>
 
