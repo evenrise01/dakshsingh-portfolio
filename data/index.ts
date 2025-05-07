@@ -97,7 +97,7 @@ export const navItems = [
     {
       id: 2,
       title: "Remote",
-      description: "India - 06:24 pm",
+      description: "India - Current Time",
       className: "group relative flex flex-col justify-between overflow-hidden rounded-xl bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:bg-black dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:[border:1px_solid_rgba(255,255,255,.1)] col-span-6 md:col-span-3 lg:col-span-2 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-start",

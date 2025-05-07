@@ -1,9 +1,14 @@
-import { CalendarIcon, DashboardIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Bot, HeartHandshake, Layout, MapPin, Share2Icon } from "lucide-react";
+import {
 
+  Bot,
+  HeartHandshake,
+  Layout,
+  MapPin,
+
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import {AnimatedBeamDemo} from "./magicui/animated-beam-demo";
+import { AnimatedBeamDemo } from "./magicui/animated-beam-demo";
 import { BentoCard, BentoGrid } from "./magicui/bento-grid";
 import { Marquee } from "./magicui/marquee";
 import Earth from "./ui/globe";
@@ -11,6 +16,7 @@ import { BorderBeam } from "./magicui/border-beam";
 import { IconCloud } from "./magicui/icon-cloud";
 import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 import { slugs } from "@/data";
+import { useEffect, useState } from "react";
 
 const files = [
   {
@@ -35,22 +41,23 @@ const files = [
   },
 ];
 const images = slugs.map(
-    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
-  );
+  (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+);
 const features = [
-    {
-        Icon: HeartHandshake,
-        name: "Collaboration",
-        description: "I prioritize client collaboration, fostering open communication",
-        href: "#",
-        cta: "View recent work",
-        className: "col-span-6 md:col-span-6 lg:col-span-4",
-        background: (
-            <div className="inset-0 flex justify-center items-center">
-            <AnimatedBeamDemo />
-          </div>
-        ),
-      },
+  {
+    Icon: HeartHandshake,
+    name: "Collaboration",
+    description:
+      "I prioritize client collaboration, fostering open communication",
+    href: "#",
+    cta: "View recent work",
+    className: "col-span-6 md:col-span-6 lg:col-span-4",
+    background: (
+      <div className="inset-0 flex justify-center items-center">
+        <AnimatedBeamDemo />
+      </div>
+    ),
+  },
   {
     Icon: MapPin,
     name: "Remote",
@@ -59,22 +66,22 @@ const features = [
     cta: "Connect now",
     className: "col-span-6 md:col-span-3 lg:col-span-2 md:row-span-2",
     background: (
-        <div>
-            <h3 className="absolute top-4 w-full px-4 text-center text-2xl leading-[100%] font-bold tracking-tighter text-balance select-none z-20 md:top-12">
-            I'm very flexible with time{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#edeffd] to-[#7b9cda] italic">
-              zone communications
-            </span>
-          </h3>
+      <div>
+        <h3 className="absolute top-4 w-full px-4 text-center text-2xl leading-[100%] font-bold tracking-tighter text-balance select-none z-20 md:top-12">
+          I'm very flexible with time{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#edeffd] to-[#7b9cda] italic">
+            zone communications
+          </span>
+        </h3>
         <div className="flex items-center justify-center absolute w-full h-full">
-            <div className="max-w-7xl w-full relative overflow-hidden h-[500px] px-4">
-              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent z-40" />
-              <div className="absolute w-full h-full bottom-0 top-6 right-1 transform translate-y-8 scale-100">
-                <Earth scale={1.1} dark={1} />
-              </div>
+          <div className="max-w-7xl w-full relative overflow-hidden h-[500px] px-4">
+            <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent z-40" />
+            <div className="absolute w-full h-full bottom-0 top-6 right-1 transform translate-y-8 scale-100">
+              <Earth scale={1.1} dark={1} />
             </div>
           </div>
-          </div>
+        </div>
+      </div>
     ),
   },
   {
@@ -85,7 +92,7 @@ const features = [
     cta: "Know more",
     className: "col-span-6 md:col-span-3 lg:col-span-2 md:row-span-2",
     background: (
-        <div className="inset-0 relative w-full h-full scale-125 top-8 right-4">
+      <div className="inset-0 relative w-full h-full scale-125 top-8 right-4">
         <IconCloud images={images} />
       </div>
     ),
@@ -98,32 +105,32 @@ const features = [
     href: "N/A",
     // cta: "Learn more",
     background: (
-        <div className="flex flex-col items-center justify-center w-full h-full rounded-lg p-8 text-center">
-  <BorderBeam
-    duration={6}
-    size={400}
-    className="from-transparent via-pink-500 to-transparent"
-  />
-  <BorderBeam
-    duration={6}
-    delay={3}
-    size={400}
-    className="from-transparent via-cyan-500 to-transparent"
-  />
-  <div className="flex flex-col items-center justify-center space-y-6 relative z-10 my-8">
-    <AnimatedShinyText className="text-3xl font-bold text-gray-300">
-      Let's work together
-      <br />
-      on your next project!
-    </AnimatedShinyText>
-    <button
-      className="items-center gap-2 py-3 mt-4 text-base font-light text-white/75 outline-hidden transition-all duration-300 cursor-pointer hover:text-white/90 flex w-full justify-center rounded-xl px-10 shadow-[inset_0_3px_10px_#ffffff3f] max-w-xs mx-auto"
-      // onClick={handleCopyEmail}
-    >
-      dakshsingh.shanu@gmail.com
-    </button>
-  </div>
-</div>
+      <div className="flex flex-col items-center justify-center w-full h-full rounded-lg p-8 text-center">
+        <BorderBeam
+          duration={6}
+          size={400}
+          className="from-transparent via-pink-500 to-transparent"
+        />
+        <BorderBeam
+          duration={6}
+          delay={3}
+          size={400}
+          className="from-transparent via-cyan-500 to-transparent"
+        />
+        <div className="flex flex-col items-center justify-center space-y-6 relative z-10 my-8">
+          <AnimatedShinyText className="text-3xl font-bold text-gray-300">
+            Let's work together
+            <br />
+            on your next project!
+          </AnimatedShinyText>
+          <button
+            className="items-center gap-2 py-3 mt-4 text-base font-light text-white/75 outline-hidden transition-all duration-300 cursor-pointer hover:text-white/90 flex w-full justify-center rounded-xl px-10 shadow-[inset_0_3px_10px_#ffffff3f] max-w-xs mx-auto"
+            // onClick={handleCopyEmail}
+          >
+            dakshsingh.shanu@gmail.com
+          </button>
+        </div>
+      </div>
     ),
   },
   {
@@ -145,7 +152,7 @@ const features = [
               "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
               "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
               "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
             )}
           >
             <div className="flex flex-row items-center gap-2">
@@ -164,9 +171,43 @@ const features = [
 ];
 
 export function BentoFeatureGrid() {
+  const [currentTime, setCurrentTime] = useState('India - Loading...');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit'
+      };
+      const formatter = new Intl.DateTimeFormat('en-IN', options);
+      const parts = formatter.formatToParts(new Date());
+      const hour = parts.find(part => part.type === 'hour')?.value;
+      const minute = parts.find(part => part.type === 'minute')?.value;
+      const dayPeriod = parts.find(part => part.type === 'dayPeriod')?.value;
+      setCurrentTime(`India - ${hour}:${minute} ${dayPeriod}`);
+    };
+
+    updateTime(); // Initial call
+    const interval = setInterval(updateTime, 60000); // Update every minute
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const updatedFeatures = features.map(feature => {
+    if (feature.name === "Remote") {
+      return {
+        ...feature,
+        description: currentTime
+      };
+    }
+    return feature;
+  });
+
   return (
     <BentoGrid className="py-20 px-40">
-      {features.map((feature, idx) => (
+      {updatedFeatures.map((feature, idx) => (
         <BentoCard key={idx} {...feature} />
       ))}
     </BentoGrid>
