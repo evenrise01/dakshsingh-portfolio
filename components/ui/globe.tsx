@@ -22,9 +22,9 @@ const Earth: React.FC<EarthProps> = ({
   diffuse = 1.2,
   mapSamples = 40000,
   mapBrightness = 6,
-  baseColor = [0.4, 0.6509, 1],
-  markerColor = [1, 0, 0],
-  glowColor = [0.2745, 0.5765, 0.898],
+  baseColor = [1, 1, 1],
+  markerColor = [251/255, 100/255, 21/255],
+  glowColor = [1.2, 1.2, 1.2],
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 

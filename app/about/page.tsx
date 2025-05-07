@@ -3,28 +3,76 @@ import { AnimatedGradientText } from "@/components/magicui/animated-gradient-tex
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { ScrollAndSwapText } from "@/components/ui/scroll-and-swap-text";
 import { Timeline } from "@/components/ui/timeline";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
 import React, { useRef } from "react";
 import GitHubCalendar from "./github-calendar";
+import {
+  CardCurtain,
+  CardCurtainReveal,
+  CardCurtainRevealBody,
+  CardCurtainRevealDescription,
+  CardCurtainRevealFooter,
+  CardCurtainRevealTitle,
+} from "@/components/ui/card-curtain-reveal";
+import { Button } from "@/components/ui/button";
 
 const AboutPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   //TODO: FIll the data later
   const data = [
     {
-      jobTitle: "Frontend Engineer",
-      companyName: "Vercel",
-      companyLogo: "/vercel.svg",
-      companyLink: "vercel.com",
-      location: "London, UK - Remote",
-      time: "2024 - Present",
+      jobTitle: "Product/Project Manager",
+      companyName: "Wysa",
+      companyLogo: "/wysa-logo.png",
+      companyLink: "https://www.wysa.com/",
+      location: "Bengaluru, India - Remote",
+      time: "2023 - 2024",
       companySummary:
         "Roboto Studio is a cutting-edge design agency specializing in building innovative web applications with a focus on user experience and performance.",
       content: (
-        <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+        <div className="flex flex-col gap-y-4 text-xs leading-relaxed text-neutral-400 md:text-sm">
+          <p>
+            Wysa is an AI-powered mental wellness platform and app that offers
+            early intervention for stress, anxiety, and low mood through an AI
+            chatbot, self-help tools, and messaging-based support from human
+            coaches. It provides a confidential and accessible way to manage
+            mental health, available 24/7.
           </p>
+          <div className="space-y-3">
+            <ul className="flex list-disc flex-col gap-y-2.5 text-neutral-400">
+              <li>
+                Led 5–10 member cross-functional teams at Wysa to deliver 5+
+                high-impact projects, aligning product outcomes with company
+                goals to streamline internal operations and enhance user
+                experience.
+              </li>
+              <li>
+                Optimized 4+ key workflows, reducing stakeholder complaints by
+                90% and directly contributing to the successful renewal of a
+                major enterprise contract.
+              </li>
+              <li>
+                Practiced user-first product thinking by identifying friction
+                points through behavioral analytics and qualitative feedback,
+                unlocking actionable solutions for design and engineering teams.
+              </li>
+              <li>
+                Prioritized stakeholder communication and maintained open,
+                structured channels, ensuring alignment across leadership,
+                product, and delivery functions.
+              </li>
+              <li>
+                Drove data-informed decisions using user analytics and iterative
+                feedback loops, resulting in meaningful feature enhancements and
+                increased user satisfaction.
+              </li>
+              <li>
+                Employed Agile methodologies while leveraging Notion and Figma
+                to manage sprints, document product specs, and facilitate design
+                collaboration at scale.
+              </li>
+            </ul>
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <img
               src="https://assets.aceternity.com/templates/startup-1.webp"
@@ -357,7 +405,48 @@ const AboutPage = () => {
               </AnimatedGradientText>
             </span>
           </h2>
-          <div className="w-full min-h-screen flex items-center justify-center p-8 bg-background">
+
+          <div className="min-h-screen place-content-center place-items-center">
+            <CardCurtainReveal className="h-[560px] w-96 border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
+              <CardCurtainRevealBody className="">
+                <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">
+                  Behind <br />
+                  the Curtain
+                </CardCurtainRevealTitle>
+                <CardCurtainRevealDescription className="my-4 ">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Accusantium voluptate, eum quia temporibus fugiat rerum
+                    nobis modi dolor, delectus laboriosam, quae adipisci
+                    reprehenderit officiis quidem iure ducimus incidunt officia.
+                    Magni, eligendi repellendus. Fugiat, natus aut?
+                  </p>
+                </CardCurtainRevealDescription>
+                <Button
+                  variant={"secondary"}
+                  size={"icon"}
+                  className="aspect-square rounded-full"
+                >
+                  <ArrowUpRight />
+                </Button>
+
+                <CardCurtain className=" bg-zinc-50" />
+              </CardCurtainRevealBody>
+
+              <CardCurtainRevealFooter className="mt-auto">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  width="100%"
+                  height="100%"
+                  alt="Tokyo street"
+                  className=""
+                  src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+              </CardCurtainRevealFooter>
+            </CardCurtainReveal>
+          </div>
+
+          {/* <div className="w-full min-h-screen flex items-center justify-center p-8 bg-background">
             <div className="w-4/6 h-[600px] rounded-3xl border relative">
               <div
                 ref={containerRef}
@@ -391,7 +480,7 @@ const AboutPage = () => {
                 <div className="h-[30%]" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
