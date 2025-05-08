@@ -231,5 +231,7 @@ export const navItems = [
     { name: "Auth.js", icon: "https://cdn.simpleicons.org/nextdns" },
     { name: "markdown", icon: "https://cdn.simpleicons.org/markdown/lightblue" },
     { name: "GROQ", icon: "https://cdn.simpleicons.org/zod" },
+    { name: "OpenAI", icon: "https://cdn.simpleicons.org/openai/green" },
+    { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/blue" },
     { name: "Sentry", icon: "https://cdn.simpleicons.org/sentry/violet" }
   ]

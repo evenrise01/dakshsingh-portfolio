@@ -3,6 +3,7 @@ import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { outfit } from "@/app/fonts";
 import { skillTechnologies } from "@/data";
 
+//TODO: Add motion and animate
 const SkillPage = () => {
   return (
     <section

@@ -6,6 +6,7 @@ import { NavbarApp } from "@/components/NavbarApp";
 import { BentoFeatureGrid } from "@/components/BentoGrid";
 import Projects from "@/components/Projects";
 import SkillPage from "@/components/Skill";
+import AboutPage from "@/components/About";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           <BentoFeatureGrid/>
           <Projects/>
           <SkillPage/>
+          <AboutPage/>
         </div>
       </main>
     </>
