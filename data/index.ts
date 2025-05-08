@@ -207,3 +207,29 @@ export const navItems = [
       text: "Finally, an AI tool that actually understands context! The accuracy in natural language processing is impressive."
     }
   ]
+
+  export const skillTechnologies = [
+    { name: "HTML", icon: "https://cdn.simpleicons.org/html5" },
+    { name: "CSS", icon: "https://cdn.simpleicons.org/css3" },
+    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
+    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
+    { name: "ReactJS", icon: "https://cdn.simpleicons.org/react" },
+    { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
+    { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" }, 
+    { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer" },
+    { name: "Shadcn", icon: "https://cdn.simpleicons.org/shadcnui/white" },
+    { name: "NodeJS", icon: "https://cdn.simpleicons.org/nodedotjs/darkgreen" },
+    { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/darkgreen" },
+    { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/sky" },
+    { name: "Prisma", icon: "https://cdn.simpleicons.org/prisma/blue" },
+    { name: "Zod", icon: "https://cdn.simpleicons.org/zod/purple" },
+    { name: "Git", icon: "https://cdn.simpleicons.org/git" },
+    { name: "Github", icon: "https://cdn.simpleicons.org/github/white" },
+    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/white" },
+    { name: "npm", icon: "https://cdn.simpleicons.org/npm" },
+    { name: "Clerk", icon: "https://cdn.simpleicons.org/clerk/white" },
+    { name: "Auth.js", icon: "https://cdn.simpleicons.org/nextdns" },
+    { name: "markdown", icon: "https://cdn.simpleicons.org/markdown/lightblue" },
+    { name: "GROQ", icon: "https://cdn.simpleicons.org/zod" },
+    { name: "Sentry", icon: "https://cdn.simpleicons.org/sentry/violet" }
+  ]

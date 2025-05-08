@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import { NavbarApp } from "@/components/NavbarApp";
 import { BentoFeatureGrid } from "@/components/BentoGrid";
 import Projects from "@/components/Projects";
-import { TechStack } from "@/components/TechStack";
+import SkillPage from "@/components/Skill";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
           <Hero />
           <BentoFeatureGrid/>
           <Projects/>
-          <TechStack subtitle="I constantly try to improve my technological knowledge."/>
+          <SkillPage/>
         </div>
       </main>
     </>
