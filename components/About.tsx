@@ -38,7 +38,7 @@ const AboutPage = () => {
           </p>
           <p>
             Every day is a chance to grow, and I’m here to make it count — one
-            line of code, one rep, or one adventure at a time.
+            line of code, one rep, one game, or one adventure at a time.
           </p>
           <div className="flex gap-3 w-fit mx-auto -mt-4 lg:mx-0">
             <button data-state="closed" data-slot="tooltip-trigger">

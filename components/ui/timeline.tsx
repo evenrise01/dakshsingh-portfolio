@@ -22,9 +22,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  console.log("Container ref", containerRef)
 
   useEffect(() => {
     if (ref.current) {
+      console.log("Current ref", ref.current)
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
     }
@@ -40,7 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans px-4 md:px-8"
+      className="w-full font-sans px-4 md:px-8"
       ref={containerRef}
     >
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

@@ -7,6 +7,8 @@ import { BentoFeatureGrid } from "@/components/BentoGrid";
 import Projects from "@/components/Projects";
 import SkillPage from "@/components/Skill";
 import AboutPage from "@/components/About";
+import Testimonials from "@/components/Testimonials";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
@@ -17,8 +19,10 @@ export default function Home() {
           <Hero />
           <BentoFeatureGrid/>
           <Projects/>
+          {/* <Experience/> */}
           <SkillPage/>
           <AboutPage/>
+          <Testimonials/>
         </div>
       </main>
     </>
