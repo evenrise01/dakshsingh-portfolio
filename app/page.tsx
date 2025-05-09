@@ -9,6 +9,7 @@ import SkillPage from "@/components/Skill";
 import AboutPage from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Experience from "@/components/Experience";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
           <SkillPage/>
           <AboutPage/>
           <Testimonials/>
+          <Contact/>
         </div>
       </main>
     </>
