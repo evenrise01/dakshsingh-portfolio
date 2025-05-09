@@ -17,7 +17,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { BorderBeam } from "./magicui/border-beam";
-import { ShineBorder } from "./magicui/shine-border";
+import { MagneticButton } from "./ui/magnetic-button";
+import { TextShimmer } from "./ui/text-shimmer";
+import AnimatedTextCycle from "./ui/animated-text-cycle";
 
 export default function ModernContactSection() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -29,11 +31,9 @@ export default function ModernContactSection() {
     message: "",
   });
 
-  const textRotateRef = useRef<TextRotateRef>(null);
 
   // Rotating text phrases
   const conceptTexts = ["CONCEPT", "IDEA", "VISION", "DREAM"];
-  const creationTexts = ["CREATION", "REALITY", "PRODUCT", "SUCCESS"];
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,15 +57,9 @@ export default function ModernContactSection() {
     }, 800);
   };
 
-  // Toggle between different rotating texts when the tab changes
-  useEffect(() => {
-    if (textRotateRef.current) {
-      textRotateRef.current.reset();
-    }
-  }, [activeTab]);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black text-white overflow-hidden">
+    <section className="relative z-0 mt-40 flex w-full justify-center overflow-x-hidden bg-[url('/cta.avif')] bg-cover bg-center px-4 py-20">
       {/* Background with subtle texture/pattern */}
       <div
         className="absolute inset-0 z-0 opacity-20"
@@ -75,44 +69,31 @@ export default function ModernContactSection() {
       />
 
       {/* Main content */}
-      <div className="z-10 text-center px-4 max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-          FROM{" "}
-          <span className="inline-block">
-            <TextRotate
-              ref={textRotateRef}
-              texts={conceptTexts}
-              mainClassName="text-4xl md:text-6xl font-bold"
-              splitLevelClassName="overflow-hidden"
-              staggerFrom="first"
-              staggerDuration={0.03}
-              rotationInterval={3000}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            />
-          </span>{" "}
-          TO <span className="text-blue-400">CREATION</span>
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-y-2 py-10 text-center lg:mx-0">
+        <h1 className="text-4xl md:text-6xl  mb-4 tracking-tight">
+          From <AnimatedTextCycle words={["concept", "vision" ,"dream","idea"]}/> to creation
         </h1>
-        <h2 className="text-3xl md:text-5xl font-bold mb-16">
-          LET's MAKE IT <span className="text-blue-400">HAPPEN!</span>
+        <h2 className="text-3xl md:text-5xl mb-16">
+          Let's make it happen!
         </h2>
 
-        <p className="text-xl text-blue-400 font-medium mb-4">
-          I'm available for full-time roles & freelance projects.
-        </p>
-        <p className="text-gray-400 mb-10 max-w-2xl mx-auto">
+        <MagneticButton onClick={() => setIsDrawerOpen(true)} className="mb-8">
+          Get in touch
+        </MagneticButton>
+
+        <TextShimmer className="tracking-wide text-base font-semibold lg:text-2xl">I'm available for full-time roles & freelance projects.</TextShimmer>
+        <p className="my-2 text-sm font-extralight tracking-wide text-balance opacity-75 lg:text-xl">
           I thrive on crafting dynamic web applications, and delivering seamless
           user experiences.
         </p>
 
-        <InteractiveHoverButton
+        
+        {/* <InteractiveHoverButton
           onClick={() => setIsDrawerOpen(true)}
           className="text-lg transition-all duration-300 hover:scale-105"
         >
           Get In Touch
-        </InteractiveHoverButton>
+        </InteractiveHoverButton> */}
       </div>
 
       {/* Contact drawer */}
@@ -137,16 +118,16 @@ export default function ModernContactSection() {
               className="fixed bottom-0 left-0 right-0 w-full md:w-[600px] md:left-1/2 md:-translate-x-1/2 z-50 bg-neutral-900 border rounded-t-[10px] p-6 pb-8"
             >
               <BorderBeam
-          duration={6}
-          size={400}
-          className="from-transparent via-pink-500 to-transparent"
-        />
-        <BorderBeam
-          duration={6}
-          delay={3}
-          size={400}
-          className="from-transparent via-green-500 to-transparent"
-        />
+                duration={6}
+                size={400}
+                className="from-transparent via-pink-500 to-transparent"
+              />
+              <BorderBeam
+                duration={6}
+                delay={3}
+                size={400}
+                className="from-transparent via-green-500 to-transparent"
+              />
               <div className="w-full flex justify-center mb-4">
                 <div className="w-12 h-1 bg-gray-700 rounded-full"></div>
               </div>
@@ -307,7 +288,10 @@ export default function ModernContactSection() {
                     <form onSubmit={handleSubmit} className="space-y-4 my-6">
                       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div className="grid gap-2">
-                          <label htmlFor="name" className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300">
+                          <label
+                            htmlFor="name"
+                            className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300"
+                          >
                             Name
                           </label>
                           <Input
@@ -321,7 +305,10 @@ export default function ModernContactSection() {
                           />
                         </div>
                         <div className="grid gap-2">
-                          <label htmlFor="email" className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300">
+                          <label
+                            htmlFor="email"
+                            className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300"
+                          >
                             Email
                           </label>
                           <Input
@@ -338,9 +325,12 @@ export default function ModernContactSection() {
                       </div>
                       <div className="grid gap-2">
                         <div className="flex items-center justify-between">
-                        <label htmlFor="message" className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300">
-                          Message
-                        </label>
+                          <label
+                            htmlFor="message"
+                            className="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive text-neutral-300"
+                          >
+                            Message
+                          </label>
                         </div>
                         <div className="relative">
                           <Textarea
