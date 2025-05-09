@@ -15,6 +15,8 @@ import {
   CardCurtainRevealTitle,
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
+import Contact from "@/components/Contact";
+import { Footer } from "@/components/footer";
 
 const AboutPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -329,8 +331,8 @@ const AboutPage = () => {
   return (
     <main>
       <div className="relative mx-auto max-w-6xl px-4 pt-28 pb-12 md:pt-36 md:pb-20">
-        <div className="flex items-center justify-center md:items-start md:justify-start">
-        <h2 className="relative z-2 mb-10 text-4xl font-medium tracking-tight sm:text-5xl md:mb-12 md:text-6xl text-center md:text-start">
+        <div className="flex items-center justify-center">
+        <h2 className="relative z-2 mb-10 text-4xl font-medium tracking-tight sm:text-5xl md:mb-12 md:text-6xl text-center">
           <p className="mb-3 text-xs font-normal tracking-widest text-white/70 uppercase md:text-sm">
             More About Me
           </p>
@@ -536,6 +538,10 @@ const AboutPage = () => {
           </div> */}
         </div>
       </div>
+      <Contact/>
+      <Footer
+            copyright="Copyright © 2025 Daksh Singh. All rights reserved."
+          />
     </main>
   );
 };

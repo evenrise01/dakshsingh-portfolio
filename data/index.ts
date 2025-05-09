@@ -1,3 +1,4 @@
+import { Blocks, Calendar, CodeXml, Codepen, CreditCard, Github, Handshake, Link, Linkedin, LucideUser, PenBoxIcon, Scale, Webhook } from "lucide-react";
 
 export const navItems = [
     { name: "About", link: "#about" },
@@ -6,7 +7,6 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
 
   ];
-
 
   export const slugs = [
     "typescript",
@@ -97,3 +97,78 @@ export const navItems = [
     { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/blue" },
     { name: "Sentry", icon: "https://cdn.simpleicons.org/sentry/violet" }
   ]
+
+  // export const footerBranding = {
+  //   name: "Daksh Singh",
+  //   description: "Help you create experiences where aesthetics & functionality seamlessly come together.",
+  // }
+
+  // export const footerSocialLinks = [
+  //   {
+  //     name: "Twitter",
+  //     href: "https://x.com/raymethula",
+  //   },
+  //   {
+  //     name: "Github",
+  //     href: "https://github.com/serafimcloud",
+  //   },
+  //   {
+  //     name: "LinkedIn",
+  //     href: "#",
+  //   },
+  // ]
+
+  // export const footerColumns = [
+  //   {
+  //     title: "General",
+  //     links: [
+  //       {
+  //         name: "Home",
+  //         Icon: Blocks,
+  //         href: "#features",
+  //       },
+  //       {
+  //         name: "About",
+  //         Icon: LucideUser,
+  //         href: "#pricing",
+  //       },
+  //       {
+  //         name: "Projects",
+  //         Icon: Webhook,
+  //         href: "#integrations",
+  //       },
+      
+  //     ],
+  //   },
+  //   {
+  //     title: "The Website",
+  //     links: [
+  //       {
+  //         name: "Bucket List",
+  //         Icon: PenBoxIcon,
+  //         href: "/compare/plausible",
+  //       },
+  //       {
+  //         name: "Links",
+  //         Icon: Link,
+  //         href: "/compare/matomo",
+  //       },
+  //       {
+  //         name: "Book a call",
+  //         Icon: Calendar,
+  //         href: "/compare/google-analytics",
+  //       },
+  //     ],
+  //   },
+  // ]
+
+  export const links = [
+    {
+      name: "LinkedIn",
+      logo: Linkedin,
+      href: "https://www.linkedin.com/in/daksh-singh-25646918a/",
+    },
+    { name: "Github", logo: Github, href: "https://github.com/evenrise01" },
+    { name: "Codepen", logo: Codepen, href: "https://codepen.io/evenrise01" },
+  ];
+  

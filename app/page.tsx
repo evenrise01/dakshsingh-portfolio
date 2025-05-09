@@ -10,21 +10,25 @@ import AboutPage from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <>
       <main className="relative flex justify-center items-center flex-col overflow-hidden bg-black">
         <div className="w-full">
-          <NavbarApp/>
+          {/* <NavbarApp /> */}
           <Hero />
-          <BentoFeatureGrid/>
-          <Projects/>
+          <BentoFeatureGrid />
+          <Projects />
           {/* <Experience/> */}
-          <SkillPage/>
-          <AboutPage/>
-          <Testimonials/>
-          <Contact/>
+          <SkillPage />
+          <AboutPage />
+          <Testimonials />
+          <Contact />
+          <Footer
+            copyright="Copyright © 2025 Daksh Singh. All rights reserved."
+          />
         </div>
       </main>
     </>

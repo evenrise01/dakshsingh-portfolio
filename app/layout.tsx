@@ -1,25 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Kbar from "@/components/kbar";
-
 import { Outfit } from 'next/font/google';
+import { NavbarApp } from "@/components/NavbarApp";
+
 
 const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '700'], // Specify weights you need
-  variable: '--font-outfit', // Optional: for CSS variables
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ['400', '700'],
+  variable: '--font-outfit',
 });
 
 export const metadata: Metadata = {
@@ -29,21 +19,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${outfit.className} antialiased`}
-      >
+      <body className={`${outfit.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <Kbar>{children}</Kbar>
+          <Kbar>
+            <NavbarApp/>
+            {children}
+          </Kbar>
         </ThemeProvider>
       </body>
     </html>

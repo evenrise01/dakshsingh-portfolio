@@ -11,17 +11,15 @@ import {
   LucideCalendar,
 } from "lucide-react";
 
-import { TextRotate, TextRotateRef } from "@/components/ui/text-rotate";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { BorderBeam } from "./magicui/border-beam";
 import { MagneticButton } from "./ui/magnetic-button";
 import { TextShimmer } from "./ui/text-shimmer";
 import AnimatedTextCycle from "./ui/animated-text-cycle";
 
-export default function ModernContactSection() {
+export default function Contact() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"connect" | "message">("connect");
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -30,7 +28,6 @@ export default function ModernContactSection() {
     email: "",
     message: "",
   });
-
 
   // Rotating text phrases
   const conceptTexts = ["CONCEPT", "IDEA", "VISION", "DREAM"];
@@ -57,9 +54,8 @@ export default function ModernContactSection() {
     }, 800);
   };
 
-
   return (
-    <section className="relative z-0 mt-40 flex w-full justify-center overflow-x-hidden bg-[url('/cta.avif')] bg-cover bg-center px-4 py-20">
+    <section id="contact" className="relative z-0 mt-40 flex w-full justify-center overflow-x-hidden bg-[url('/cta.avif')] bg-cover bg-center px-4 py-20">
       {/* Background with subtle texture/pattern */}
       <div
         className="absolute inset-0 z-0 opacity-20"
@@ -71,23 +67,24 @@ export default function ModernContactSection() {
       {/* Main content */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-y-2 py-10 text-center lg:mx-0">
         <h1 className="text-4xl md:text-6xl  mb-4 tracking-tight">
-          From <AnimatedTextCycle words={["concept", "vision" ,"dream","idea"]}/> to creation
+          From{" "}
+          <AnimatedTextCycle words={["concept", "vision", "dream", "idea"]} />{" "}
+          to creation
         </h1>
-        <h2 className="text-3xl md:text-5xl mb-16">
-          Let's make it happen!
-        </h2>
+        <h2 className="text-3xl md:text-5xl mb-16">Let's make it happen!</h2>
 
         <MagneticButton onClick={() => setIsDrawerOpen(true)} className="mb-8">
           Get in touch
         </MagneticButton>
 
-        <TextShimmer className="tracking-wide text-base font-semibold lg:text-2xl">I'm available for full-time roles & freelance projects.</TextShimmer>
+        <TextShimmer className="tracking-wide text-base font-semibold lg:text-2xl">
+          I'm available for full-time roles & freelance projects.
+        </TextShimmer>
         <p className="my-2 text-sm font-extralight tracking-wide text-balance opacity-75 lg:text-xl">
           I thrive on crafting dynamic web applications, and delivering seamless
           user experiences.
         </p>
 
-        
         {/* <InteractiveHoverButton
           onClick={() => setIsDrawerOpen(true)}
           className="text-lg transition-all duration-300 hover:scale-105"

@@ -18,19 +18,19 @@ export function NavbarApp() {
   const navItems = [
     {
       name: "Home",
-      link: "#home",
+      link: "/",
     },
     {
       name: "Work",
-      link: "#work",
+      link: "/work",
     },
     {
       name: "About",
-      link: "#about",
+      link: "/about",
     },
     {
       name: "Links",
-      link: "#links",
+      link: "/links",
     },
     {
       name: "Book a call",
