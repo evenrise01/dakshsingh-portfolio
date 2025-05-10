@@ -4,7 +4,14 @@ import { ThemeProvider } from "next-themes";
 import Kbar from "@/components/kbar";
 import { Outfit } from 'next/font/google';
 import { NavbarApp } from "@/components/NavbarApp";
+import { Tangerine } from 'next/font/google'; // Replace Meow_Script with Tangerine
 
+// Remove Meow_Script and add Tangerine instead
+const tangerine = Tangerine({ 
+  subsets: ['latin'],
+  weight: ['400', '700'], // Tangerine has both regular (400) and bold (700) weights
+  variable: '--font-tangerine',
+});
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -23,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${outfit.className} ${tangerine.variable}`}>
+      <body className={`${outfit.className} antialiased relative h-full selection:bg-purple-600/20 selection:text-purple-400 dark:bg-black`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

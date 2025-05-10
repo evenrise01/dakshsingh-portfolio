@@ -11,9 +11,9 @@ const Testimonials = () => {
             TESTIMONIALS
           </p>
           <span>
-            Word on the street {" "}
+            Word on the street <br/>
           </span>
-          <AnimatedGradientText>about me</AnimatedGradientText>
+          <AnimatedGradientText className='tangerine-bold'>about me</AnimatedGradientText>
         </h2>
         <TestimonialComponent/>
     </section>

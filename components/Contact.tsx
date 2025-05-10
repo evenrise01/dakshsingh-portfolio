@@ -18,6 +18,9 @@ import { BorderBeam } from "./magicui/border-beam";
 import { MagneticButton } from "./ui/magnetic-button";
 import { TextShimmer } from "./ui/text-shimmer";
 import AnimatedTextCycle from "./ui/animated-text-cycle";
+import AnimatedGradientBackground from "./ui/animated-gradient-background";
+import { AnimatedGradientText } from "./magicui/animated-gradient-text";
+import HeroBackground from "./ui/hero-background";
 
 export default function Contact() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -29,8 +32,6 @@ export default function Contact() {
     message: "",
   });
 
-  // Rotating text phrases
-  const conceptTexts = ["CONCEPT", "IDEA", "VISION", "DREAM"];
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -55,28 +56,36 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative z-0 mt-40 flex w-full justify-center overflow-x-hidden bg-[url('/cta.avif')] bg-cover bg-center px-4 py-20">
+    <section id="contact" className="relative z-0 mt-40 flex w-full justify-center overflow-x-hidden px-4 py-36">
       {/* Background with subtle texture/pattern */}
-      <div
+      {/* <div
         className="absolute inset-0 z-0 opacity-20"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      />
+      /> */}
 
       {/* Main content */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-y-2 py-10 text-center lg:mx-0">
+      <h2 className="relative z-2 mb-8 text-4xl font-medium tracking-tight sm:text-5xl md:mb-12 md:text-6xl text-center">
+          <p
+            className="text-xs font-normal tracking-widest text-white/70 uppercase md:text-sm"
+          >
+            CONTACT ME
+          </p>
+        </h2>
         <h1 className="text-4xl md:text-6xl  mb-4 tracking-tight">
           From{" "}
           <AnimatedTextCycle words={["concept", "vision", "dream", "idea"]} />{" "}
-          to creation
+          to <span className="font-bold">creation</span>
         </h1>
-        <h2 className="text-3xl md:text-5xl mb-16">Let's make it happen!</h2>
+        <h2 className="text-3xl md:text-5xl mb-16">Let's make it <span className="font-bold">happen!</span></h2>
 
-        <MagneticButton onClick={() => setIsDrawerOpen(true)} className="mb-8">
+        <MagneticButton onClick={() => setIsDrawerOpen(true)} className="mb-16">
           Get in touch
         </MagneticButton>
 
+      <div className="flex flex-col items-center justify-center mt-20">
         <TextShimmer className="tracking-wide text-base font-semibold lg:text-2xl">
           I'm available for full-time roles & freelance projects.
         </TextShimmer>
@@ -84,7 +93,7 @@ export default function Contact() {
           I thrive on crafting dynamic web applications, and delivering seamless
           user experiences.
         </p>
-
+        </div>
         {/* <InteractiveHoverButton
           onClick={() => setIsDrawerOpen(true)}
           className="text-lg transition-all duration-300 hover:scale-105"
@@ -358,6 +367,7 @@ export default function Contact() {
           </>
         )}
       </AnimatePresence>
+      
     </section>
   );
 }

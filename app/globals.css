@@ -7,6 +7,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.tangerine-regular {
+  font-family: var(--font-tangerine);
+  font-weight: 400;
+}
+
+.tangerine-bold {
+  font-family: var(--font-tangerine);
+  font-weight: 700;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

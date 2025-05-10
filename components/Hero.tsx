@@ -28,14 +28,14 @@ const Hero = () => {
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           {/* Main Heading */}
           <div className="mb-8 text-center">
-            <h1 className="mb-1 text-5xl font-bold text-white md:text-6xl">
+            <h1 className="mb-1 text-5xl  text-white md:text-6xl">
               I help founders turn ideas
             </h1>
             <div className="flex items-center justify-center">
-              <h1 className="text-5xl font-bold text-white md:text-6xl">
+              <h1 className="text-5xl font-bold text-white md:text-6xl tangerine-regular">
                 into seamless
               </h1>
-              <h1 className="ml-4 text-5xl font-light italic text-white md:text-6xl">
+              <h1 className="ml-4 text-5xl font-light italic text-white md:text-6xl tangerine-regular">
                 digital experiences
               </h1>
             </div>

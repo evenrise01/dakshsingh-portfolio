@@ -1,7 +1,6 @@
 "use client";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
-import { ScrollAndSwapText } from "@/components/ui/scroll-and-swap-text";
 import { Timeline } from "@/components/ui/timeline";
 import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
 import React, { useRef } from "react";
@@ -17,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
+import Image from "next/image";
 
 const AboutPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -329,25 +329,56 @@ const AboutPage = () => {
   ));
 
   return (
-    <main>
-      <div className="relative mx-auto max-w-6xl px-4 pt-28 pb-12 md:pt-36 md:pb-20">
-        <div className="flex items-center justify-center">
-        <h2 className="relative z-2 mb-10 text-4xl font-medium tracking-tight sm:text-5xl md:mb-12 md:text-6xl text-center">
-          <p className="mb-3 text-xs font-normal tracking-widest text-white/70 uppercase md:text-sm">
-            More About Me
-          </p>
-          <span>Hi there! I&apos;m</span>{" "}
-          <AnimatedGradientText
-            speed={2}
-            colorFrom="#4ade80"
-            colorTo="#06b6d4"
-            className="italic"
-          >
-            Daksh
-          </AnimatedGradientText>
-        </h2>
+    <main className="min-h-screen bg-black">
+      {/* Hero banner with full-bleed background - Similar to bucket-list page */}
+      <div className="relative">
+        {/* Background container with aspect ratio */}
+        <div className="h-[70vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
+          {/* Background image */}
+          <Image 
+            src="/developer-bg.jpg" 
+            alt="Developer background"
+            className="object-cover object-center pointer-events-none select-none"
+            priority
+            fill
+          />
+          
+          {/* Overlay gradients for better text contrast and visual appeal */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+          
+          {/* Colored accents for visual interest */}
+          <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-emerald-900/10 mix-blend-multiply"></div>
+          
+          {/* Content container */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h2 className="relative z-10 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl max-w-2xl mx-auto">
+              <p className="mb-3 text-xs font-normal tracking-widest text-gray-400 uppercase md:text-sm">
+                MORE ABOUT ME
+              </p>
+              <span className="text-white md:text-6xl">
+                Hi there! I&apos;m
+                <br />
+                <span className="tangerine-bold">
+                  <AnimatedGradientText
+                    speed={2}
+                    colorFrom="#4ade80"
+                    colorTo="#06b6d4"
+                  >
+                    Daksh
+                  </AnimatedGradientText>
+                </span>
+              </span>
+            </h2>
+          </div>
+          
+          {/* Bottom fade to content area */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
         </div>
+      </div>
 
+      <div className="relative mx-auto max-w-6xl px-4 -mt-16 z-10 mb-12">
         {/* Modified layout with carousel on the right */}
         <div className="flex flex-col items-center justify-between gap-8 lg:flex-row mb-12">
           {/* About content - left side */}
@@ -411,19 +442,18 @@ const AboutPage = () => {
         <section id="experience">
           <h2 className="relative z-2 mb-20 text-4xl font-medium tracking-tight sm:text-5xl md:mb-24 md:text-6xl text-center">
             <p className="mb-3 text-xs font-normal tracking-widest text-white/70 uppercase md:text-sm">
-              The Experience
+              About
             </p>
             <span>
-              Experience That <br />
-              Brings
+              The Journey So Far <br />
               <AnimatedGradientText
                 speed={2}
                 colorFrom="#4ade80"
                 colorTo="#06b6d4"
-                className="italic"
+                className="italic tangerine-bold pr-3"
               >
                 {" "}
-                Ideas to Life
+                And The Miles to go
               </AnimatedGradientText>
             </span>
           </h2>
@@ -453,7 +483,7 @@ const AboutPage = () => {
                 speed={2}
                 colorFrom="#4ade80"
                 colorTo="#06b6d4"
-                className="italic"
+                className="tangerine-regular px-2"
               >
                 {" "}
                 Life to Me
@@ -500,48 +530,12 @@ const AboutPage = () => {
               </CardCurtainRevealFooter>
             </CardCurtainReveal>
           </div>
-
-          {/* <div className="w-full min-h-screen flex items-center justify-center p-8 bg-background">
-            <div className="w-4/6 h-[600px] rounded-3xl border relative">
-              <div
-                ref={containerRef}
-                className="w-full h-full rounded-lg items-center justify-center font-overusedGrotesk p-2 overflow-auto overscroll-auto text-[#E794DA] relative"
-              >
-                <div className="h-[100%] flex justify-center items-center uppercase relative">
-                  <p className="absolute bottom-4 left-4 font-bold text-xl">
-                    SCROLL SLOWLY
-                  </p>
-                  <div className="flex md:text-4xl sm:text-3xl text-lg lg:text-5xl cl:text-6xl justify-center items-center flex-col">
-                    <ScrollAndSwapText
-                      label="Every day is a journey,"
-                      offset={["0 0.15", "0 0.35"]}
-                      className="font-bold"
-                      containerRef={containerRef}
-                    />
-                    <ScrollAndSwapText
-                      label="and the journey"
-                      offset={["0 0.25", "0 0.45"]}
-                      className="font-bold"
-                      containerRef={containerRef}
-                    />
-                    <ScrollAndSwapText
-                      label="itself is home."
-                      offset={["0 0.35", "0 0.55"]}
-                      className="font-bold"
-                      containerRef={containerRef}
-                    />
-                  </div>
-                </div>
-                <div className="h-[30%]" />
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
       <Contact/>
       <Footer
-            copyright="Copyright © 2025 Daksh Singh. All rights reserved."
-          />
+        copyright="Copyright © 2025 Daksh Singh. All rights reserved."
+      />
     </main>
   );
 };
