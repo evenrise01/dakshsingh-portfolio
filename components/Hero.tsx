@@ -1,63 +1,62 @@
 "use client";
 import { useState } from "react";
-import { Sparkles } from "./ui/sparkles";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
-import { Copy } from "lucide-react";
+import { ChevronRight, Copy } from "lucide-react";
 import ContactDrawer from "./ui/contact-drawer";
+import { WavyBackground } from "./ui/wavy-background";
+import MagicButton from "./ui/magic-button";
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  
   const handleCopy = () => {
     navigator.clipboard.writeText("dakshsingh.shanu@gmail.com");
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 5000); // Reset after 5 seconds
   };
   return (
-    <div className="min-h-screen w-screen overflow-hidden bg-black">
-      <div className="relative h-screen w-screen overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#5F4B8B,transparent_90%)] before:opacity-100 after:absolute after:border-2 after:-left-1/2 after:top-[85%] after:aspect-[1/0.6] after:w-[200%] after:rounded-[50%] after:border-b after:border-[#7876c566] after:bg-zinc-900">
-        {/* Add the white glow above the curvature */}
-        <div className="absolute -left-1/2 top-[80%] aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/20 dark:border-white/20 bg-white dark:bg-zinc-900" />
-        <Sparkles
-          density={1200}
-          size={1.7}
-          direction="top"
-          className="absolute inset-x-0 top-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
-        />
+    
+    <div className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden bg-black px-4">
+      {/* Main Container with centered content */}
+      <WavyBackground>
+      <div className="flex flex-col items-center justify-center max-w-5xl mx-auto mt-20">
+        {/* Main Heading */}
+        <h1 className="text-6xl text-white font-normal text-center mb-2">
+          I help founders turn ideas
+        </h1>
+        
+        {/* Subheading with special typography */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl text-white italic font-light tangerine-regular">
+            into seamless digital experiences
+          </h2>
+        </div>
+        
+        {/* Introduction */}
+        <div className="text-center mb-20">
+          <h3 className="text-2xl text-white font-normal">
+            Hello, I'm Daksh Singh
+          </h3>
+          <p className="text-xl text-white font-light italic">
+            your next <span className="font-bold">creative developer.</span>
+          </p>
 
-        {/* Content Container */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-          {/* Main Heading */}
-          <div className="mb-8 text-center">
-            <h1 className="mb-1 text-5xl  text-white md:text-6xl">
-              I help founders turn ideas
-            </h1>
-            <div className="flex items-center justify-center">
-              <h1 className="text-5xl font-bold text-white md:text-6xl tangerine-regular">
-                into seamless
-              </h1>
-              <h1 className="ml-4 text-5xl font-light italic text-white md:text-6xl tangerine-regular">
-                digital experiences
-              </h1>
-            </div>
-          </div>
-          {/* Introduction centered with different lighting */}
-          <div className="mb-12 flex items-center justify-center">
-            <h2 className="text-center text-xl text-gray-300">
-              Hello, I'm Daksh Singh <br />
-              <span className="font-light italic">
-                your next creative developer.
-              </span>
-            </h2>
-          </div>
-
-          {/* CTA Buttons */}
-
-          <div className="flex items-center space-x-4">
-            <InteractiveHoverButton className="" onClick={() => setIsDrawerOpen(true)}>
-              Let&apos;s Connect
-            </InteractiveHoverButton>
-            <div
+        </div>
+        
+        {/* CTA Buttons */}
+        <div className="flex items-center space-x-6 mt-8">
+          {/* Connect Button */}
+          <InteractiveHoverButton 
+            onClick={() => setIsDrawerOpen(true)}
+            className="flex items-center space-x-2 bg-black text-white px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all"
+          >
+            <span className="w-2 h-2 bg-white rounded-full"></span>
+            <span>Let's Connect</span>
+          </InteractiveHoverButton>
+          
+          {/* Email with copy function */}
+          <div
               className="flex items-center text-gray-300 cursor-pointer hover:text-white transition-colors"
               onClick={handleCopy}
             >
@@ -77,12 +76,17 @@ const Hero = () => {
                 Copied to clipboard!
               </span>
             </div>
-          </div>
         </div>
       </div>
+      
       {/* Contact drawer component */}
-      <ContactDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      <ContactDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
+          </WavyBackground>
     </div>
+
   );
 };
 

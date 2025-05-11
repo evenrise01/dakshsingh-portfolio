@@ -12,12 +12,12 @@ import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
 
+
 export default function Home() {
   return (
     <>
       <main className="relative flex justify-center items-center flex-col overflow-hidden bg-black">
         <div className="w-full">
-          {/* <NavbarApp /> */}
           <Hero />
           <BentoFeatureGrid />
           <Projects />

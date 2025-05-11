@@ -33,16 +33,12 @@ export const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
     
     const socialLinks = [
       {
-        name: "Twitter",
-        href: "https://x.com/raymethula",
-      },
-      {
         name: "Github",
-        href: "https://github.com/serafimcloud",
+        href: "https://github.com/evenrise01",
       },
       {
         name: "LinkedIn",
-        href: "#",
+        href: "https://www.linkedin.com/in/daksh-singh-25646918a/",
       },
     ]
     
@@ -53,17 +49,17 @@ export const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
           {
             name: "Home",
             Icon: Blocks,
-            href: "#features",
+            href: "/",
           },
           {
             name: "About",
             Icon: LucideUser,
-            href: "#pricing",
+            href: "/about",
           },
           {
             name: "Projects",
             Icon: Webhook,
-            href: "#integrations",
+            href: "/projects",
           },
         
         ],
@@ -74,17 +70,17 @@ export const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
           {
             name: "Bucket List",
             Icon: PenBoxIcon,
-            href: "/compare/plausible",
+            href: "/bucket-list",
           },
           {
             name: "Links",
             Icon: Link,
-            href: "/compare/matomo",
+            href: "/links",
           },
           {
             name: "Book a call",
             Icon: Calendar,
-            href: "/compare/google-analytics",
+            href: "/calendar",
           },
         ],
       },
