@@ -4,7 +4,7 @@ import ResultItem from "./result-item";
 
 export default function RenderResults() {
   const { results, rootActionId } = useMatches();
-  console.log("Results", results)
+  // console.log("Results", results)
   return (
     <div className="relative overflow-auto max-h-[70vh]">
       <KBarResults

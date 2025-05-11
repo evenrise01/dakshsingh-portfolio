@@ -2,13 +2,41 @@ import { outfit } from "@/app/fonts";
 import React from "react";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { ChevronRight, ChevronRightCircle, Github, Linkedin, Twitter } from "lucide-react";
-
+import Image from 'next/image'
 const AboutPage = () => {
   return (
     // <div className="w-full overflow-hidden">
 
     // </div>
     <section id="about" className="relative overflow-hidden px-4 pt-20">
+      {/* Full-width background wrapper that extends to the sides */}
+      <div className="absolute inset-0 w-screen left-1/2 -translate-x-1/2">
+        {/* Background image container */}
+        <div className="relative h-full w-full">
+          {/* Background image that extends beyond the content area */}
+          <Image
+            src="/about-section-bg.jpg"
+            alt="Rocky background"
+            className="object-cover object-center pointer-events-none select-none"
+            sizes="100vw"
+            quality={90}
+            priority
+            fill
+          />
+
+          {/* Overlay gradients for better text contrast and visual appeal - enhanced for mobile */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent sm:via-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 sm:from-black/40 sm:to-black/40"></div>
+
+          {/* Colored accents to match reference - adjusted for mobile visibility */}
+          <div className="absolute inset-0 bg-amber-800/5 sm:bg-amber-800/10 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-purple-900/5 sm:bg-purple-900/10 mix-blend-color-burn"></div>
+
+          {/* Side gradients to blend with page edges - responsive widths */}
+          <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-black to-transparent"></div>
+          <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-black to-transparent"></div>
+        </div>
+      </div>
       <div className="flex flex-col items-center justify-center">
         <h2 className="relative z-2 mb-20 text-4xl font-medium tracking-tight sm:text-5xl md:mb-36 md:text-6xl text-center">
           <p

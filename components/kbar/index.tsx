@@ -10,9 +10,30 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import RenderResults from "./render-results";
 import { IoSearch } from "react-icons/io5";
-
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 
 export default function KBar({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
+   // Navigation handler using useCallback to memoize functions
+   const navigateTo = useCallback((path: string) => {
+    return () => router.push(path);
+  }, [router]);
+
+  // External link handler
+  const openExternalLink = useCallback((url: string) => {
+    return () => window.open(url, '_blank');
+  }, []);
+
+  // Resume handler
+  const handleResumeView = useCallback(() => {
+    // You can either navigate to a dedicated resume page
+    // router.push('/resume');
+    
+    // Or open a PDF file in a new tab
+    window.open('/resume.pdf', '_blank');
+  }, []);
 
   const actions: Action[] = [
     //Navigation Section
@@ -23,9 +44,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["h"],
       keywords: "home, main, landing, page, start, welcome, dashboard",
       section: "Navigation",
-      perform: () => {
-        // Navigate to home
-      },
+      perform: navigateTo('/'),
     },
     {
       id: "projects",
@@ -34,9 +53,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["p"],
       keywords: "projects, portfolio, work, showcase, examples, demos",
       section: "Navigation",
-      perform: () => {
-        // Navigate to projects
-      },
+      perform: navigateTo('/projects'),
     },
     {
       id: "links",
@@ -45,9 +62,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["l"],
       keywords: "links, resources, bookmarks, urls, websites, references",
       section: "Navigation",
-      perform: () => {
-        // Navigate to links
-      },
+      perform: navigateTo('/links'),
     },
     {
       id: "about",
@@ -56,11 +71,17 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["a"],
       keywords: "about, bio, profile, information, personal, background, story",
       section: "Navigation",
-      perform: () => {
-        // Navigate to about
-      },
+      perform: navigateTo('/about'),
     },
-    
+    {
+      id: "bucket-list",
+      name: "Bucket List",
+      subtitle: "See all the things I want to do!",
+      shortcut: ["b"],
+      keywords: "about, bio, profile, information, personal, background, story, bucket list, list",
+      section: "Navigation",
+      perform: navigateTo('/about'),
+    },
     //General Section
     {
       id: "resume",
@@ -69,9 +90,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["r"],
       keywords: "resume, cv, curriculum vitae, experience, qualifications, job, career",
       section: "General",
-      perform: () => {
-        // Open resume
-      },
+      perform: handleResumeView,
     },
     
     //Social Section
@@ -82,9 +101,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["g", "h"],
       keywords: "github, git, code, repository, source, projects, development, open source",
       section: "Social",
-      perform: () => {
-        // Open GitHub profile
-      },
+      perform: openExternalLink('https://github.com/evenrise01'),
     },
     {
       id: "viewLinkedIn",
@@ -93,9 +110,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["g", "l"],
       keywords: "linkedin, social, professional, network, career, job, profile, connect",
       section: "Social",
-      perform: () => {
-        // Open LinkedIn profile
-      },
+      perform: openExternalLink('https://www.linkedin.com/in/daksh-singh-25646918a/'),
     },
   ];
 

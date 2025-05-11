@@ -1,5 +1,6 @@
 import { forwardRef, useMemo, type Ref, Fragment } from "react";
 import type { ActionImpl, ActionId } from "kbar";
+import { ListTodo } from "lucide-react";
 
 // Icons matching those in the image
 const HomeIcon = () => (
@@ -104,6 +105,8 @@ const ResultItem = forwardRef(
             return <GuestbookIcon />;
           case "links":
             return <LinksIcon />;
+            case "bucket-list":
+              return <ListTodo/>
           case "about":
             return <AboutIcon />;
           case "resume":
