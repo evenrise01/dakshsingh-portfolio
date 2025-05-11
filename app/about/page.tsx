@@ -2,18 +2,9 @@
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { Timeline } from "@/components/ui/timeline";
-import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import React, { useRef } from "react";
 import GitHubCalendar from "./github-calendar";
-import {
-  CardCurtain,
-  CardCurtainReveal,
-  CardCurtainRevealBody,
-  CardCurtainRevealDescription,
-  CardCurtainRevealFooter,
-  CardCurtainRevealTitle,
-} from "@/components/ui/card-curtain-reveal";
-import { Button } from "@/components/ui/button";
 import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
 import Image from "next/image";
@@ -265,7 +256,7 @@ const AboutPage = () => {
   // TODO: Card data for the carousel
   const cardData = [
     {
-      src: "/coding.jpg",
+      src: "/about/about-code.jpg",
       title: "I Code",
       category: "Passion",
       content: (
@@ -285,7 +276,7 @@ const AboutPage = () => {
       ),
     },
     {
-      src: "/travel.jpg",
+      src: "/about/about-travelling.jpg",
       title: "I Travel",
       category: "Adventure",
       content: (
@@ -303,7 +294,7 @@ const AboutPage = () => {
       ),
     },
     {
-      src: "/fitness.jpg",
+      src: "/about/about-gym.jpg",
       title: "I Lift",
       category: "Lifestyle",
       content: (
@@ -336,7 +327,7 @@ const AboutPage = () => {
         <div className="h-[70vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
           {/* Background image */}
           <Image 
-            src="/developer-bg.jpg" 
+            src="/about/developer-bg.jpg" 
             alt="Developer background"
             className="object-cover object-center pointer-events-none select-none"
             priority
@@ -463,10 +454,9 @@ const AboutPage = () => {
         {/* Github Contributions */}
         <div className="my-20 flex items-center justify-center gap-10 w-full opacity-90 flex-col lg:flex-row">
           <h2 className="relative z-2 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl text-center mb-0 md:mb-0 lg:text-left lg:text-5xl">
-            <span>Github</span>
-            <AnimatedGradientText className="italic block">
+            <span className="block">Github <br/>
               Contributions
-            </AnimatedGradientText>
+              </span>
           </h2>
           <GitHubCalendar />
         </div>
@@ -491,45 +481,6 @@ const AboutPage = () => {
             </span>
           </h2>
 
-          <div className="min-h-screen place-content-center place-items-center">
-            <CardCurtainReveal className="h-[560px] w-96 border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
-              <CardCurtainRevealBody className="">
-                <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">
-                  Behind <br />
-                  the Curtain
-                </CardCurtainRevealTitle>
-                <CardCurtainRevealDescription className="my-4 ">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Accusantium voluptate, eum quia temporibus fugiat rerum
-                    nobis modi dolor, delectus laboriosam, quae adipisci
-                    reprehenderit officiis quidem iure ducimus incidunt officia.
-                    Magni, eligendi repellendus. Fugiat, natus aut?
-                  </p>
-                </CardCurtainRevealDescription>
-                <Button
-                  variant={"secondary"}
-                  size={"icon"}
-                  className="aspect-square rounded-full"
-                >
-                  <ArrowUpRight />
-                </Button>
-
-                <CardCurtain className=" bg-zinc-50" />
-              </CardCurtainRevealBody>
-
-              <CardCurtainRevealFooter className="mt-auto">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  width="100%"
-                  height="100%"
-                  alt="Tokyo street"
-                  className=""
-                  src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </CardCurtainRevealFooter>
-            </CardCurtainReveal>
-          </div>
         </div>
       </div>
       <Contact/>

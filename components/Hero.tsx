@@ -3,10 +3,11 @@ import { useState } from "react";
 import { Sparkles } from "./ui/sparkles";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Copy } from "lucide-react";
+import ContactDrawer from "./ui/contact-drawer";
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText("dakshsingh.shanu@gmail.com");
     setIsCopied(true);
@@ -53,7 +54,7 @@ const Hero = () => {
           {/* CTA Buttons */}
 
           <div className="flex items-center space-x-4">
-            <InteractiveHoverButton className="">
+            <InteractiveHoverButton className="" onClick={() => setIsDrawerOpen(true)}>
               Let&apos;s Connect
             </InteractiveHoverButton>
             <div
@@ -79,6 +80,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      {/* Contact drawer component */}
+      <ContactDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </div>
   );
 };

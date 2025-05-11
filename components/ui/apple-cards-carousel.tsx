@@ -195,7 +195,7 @@ export const Card = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-50 h-screen overflow-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -203,15 +203,15 @@ export const Card = ({
               className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
             />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-3xl rounded-2xl bg-white p-4 font-sans md:p-6 dark:bg-neutral-900"
+              className="relative z-[60] mx-auto w-full max-w-3xl rounded-2xl bg-white p-4 font-sans md:p-6 dark:bg-neutral-900"
             >
               <button
-                className="sticky top-2 right-0 ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-black dark:bg-white"
+                className="absolute right-4 top-4 z-50 flex h-6 w-6 items-center justify-center rounded-full bg-black dark:bg-white"
                 onClick={handleClose}
               >
                 <XCircleIcon className="h-5 w-5 text-neutral-100 dark:text-neutral-900" />

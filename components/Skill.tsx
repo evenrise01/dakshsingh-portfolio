@@ -76,8 +76,7 @@ const SkillPage = () => {
           >
             I CONSTANTLY TRY TO IMPROVE
           </motion.p>
-          <span className={outfit.className}>My </span>{" "}
-          <AnimatedGradientText>Tech Stack</AnimatedGradientText>
+          <AnimatedGradientText className="tangerine-bold text-6xl pr-2">My Tech Stack</AnimatedGradientText>
         </motion.h2>
       </motion.div>
 

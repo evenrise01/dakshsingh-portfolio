@@ -8,7 +8,7 @@ const AboutPage = () => {
     // <div className="w-full overflow-hidden">
 
     // </div>
-    <section id="about" className="relative overflow-hidden px-4 py-20">
+    <section id="about" className="relative overflow-hidden px-4 pt-20">
       <div className="flex flex-col items-center justify-center">
         <h2 className="relative z-2 mb-20 text-4xl font-medium tracking-tight sm:text-5xl md:mb-36 md:text-6xl text-center">
           <p
@@ -19,11 +19,11 @@ const AboutPage = () => {
           <span className={outfit.className}>
             Full-Stack Developer and <br />a little bit of{" "}
           </span>{" "}
-          <AnimatedGradientText>everything</AnimatedGradientText>
+          <AnimatedGradientText className="tangerine-bold text-7xl">Everything</AnimatedGradientText>
         </h2>
-        <div className="relative grid aspect-square w-56 place-content-center overflow-hidden rounded-full lg:mt-20 lg:w-[500px] lg:me-10">
+        {/* <div className="relative grid aspect-square w-56 place-content-center overflow-hidden rounded-full lg:mt-20 lg:w-[500px] lg:me-10">
             <img src="/vercel.svg" alt="Daksh Image" className="absolute inset-0  object-cover opacity-[var(--opacity)] blur-[calc(var(--blur)*10px)]"/>
-        </div>
+        </div> */}
         <div className="relative z-5 mx-auto flex max-w-xl flex-col gap-y-8 text-center text-base font-light tracking-wider text-white/70 lg:mx-0 lg:max-w-[550px] lg:text-left lg:text-lg">
           <p>
             I'm Daksh — a curious and driven individual who finds joy in both
