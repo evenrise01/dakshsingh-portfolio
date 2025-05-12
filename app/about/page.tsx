@@ -8,6 +8,7 @@ import GitHubCalendar from "./github-calendar";
 import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
 import Image from "next/image";
+import StatBlock from "@/components/ui/stat-block";
 
 const AboutPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,42 +24,32 @@ const AboutPage = () => {
       content: (
         <div className="flex flex-col gap-y-4 text-xs leading-relaxed text-neutral-400 md:text-sm">
           <p>
-          Github is a platform for developers to collaborate and contribute to open source projects.
+            Github is a platform for developers to collaborate and contribute to
+            open source projects.
           </p>
           <div className="space-y-3">
             <ul className="flex list-disc flex-col gap-y-2.5 text-neutral-400">
               <li>
-              Engaged with developer communities, collaborating on innovative solutions and best practices.
+                Engaged with developer communities, collaborating on innovative
+                solutions and best practices.
               </li>
               <li>
-              Contributed to open-source projects with 15,000+ Github stars, improving code quality, feature implementations, and documentation.
+                Contributed to open-source projects with 15,000+ Github stars,
+                improving code quality, feature implementations, and
+                documentation.
               </li>
             </ul>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/experience-1.jpg"
               alt="startup template"
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
+              src="/experience-2.jpg"
               alt="startup template"
               width={500}
               height={500}
@@ -66,10 +57,15 @@ const AboutPage = () => {
             />
           </div>
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">NextJS</span>
-            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">TypeScript</span>
-            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">TailwindCSS</span>
-            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">NextJS</span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              NextJS
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              TypeScript
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              TailwindCSS
+            </span>
           </div>
         </div>
       ),
@@ -118,42 +114,72 @@ const AboutPage = () => {
                 feedback loops, resulting in meaningful feature enhancements and
                 increased user satisfaction.
               </li>
-              <li>
-                Employed Agile methodologies while leveraging Notion and Figma
-                to manage sprints, document product specs, and facilitate design
-                collaboration at scale.
-              </li>
             </ul>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            <StatBlock
+              number={5}
+              suffix="+"
+              title="Sprint Cycles Managed"
+              subtitle="Utilized Notion to manage specs, documents, and team collaboration at scale."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+
+            <StatBlock
+              number={1}
+              title="Major Enterprise Contract Renewed"
+              subtitle="Directly contributed to client retention through improved workflows, continous development and delivery outcomes."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+
+            <StatBlock
+              suffix="%"
+              number={90}
+              title="Reduction in Stakeholder Complaints"
+              subtitle="Resolved key friction points in delivery and communication, leading to stronger cross-functional trust."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            <StatBlock
+              suffix="+"
+              number={4}
+              title="Stakeholder Groups Aligned Continously"
+              subtitle="Ensured clear and open communication between leadership, product, analytics, and engineering."
             />
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Notion
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Figma
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Miro
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Mentorship & Onboarding
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Cross-Functional Leadership
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Workflow Optimization
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Product Strategy
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Agile Methodology
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Friction Point Analysis
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Feature Enhancement
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Iterative Development
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Stakeholder Management
+            </span>
           </div>
         </div>
       ),
@@ -220,34 +246,60 @@ const AboutPage = () => {
             </ul>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            <StatBlock
+              number={20}
+              suffix="+"
+              title="Increase in Model Aptness"
+              subtitle="Boosted response quality through continuous evaluation and tagging of 25+ AI models."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+
+            <StatBlock
+              suffix="+"
+              number={5}
+              title="Team Members Mentored"
+              subtitle="Enabled faster onboarding and consistent delivery by training new hires on conversation design and QA."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+
+            <StatBlock
+              suffix="+"
+              number={50000}
+              title="AI Conversations Improved"
+              subtitle="Oversaw high-quality delivery across multiple launches, ensuring adherence to tone, safety, and therapeutic standards."
             />
-            <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            <StatBlock
+              number={1}
+              title="Central Knowledge Hub Created"
+              subtitle="Maintained structured Notion documentation for project tracking, feedback loops, and contributor onboarding."
             />
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Conversation Design
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Content QA
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              AI/ML Models
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Mentorship & Onboarding
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Cross-Functional Collaboration
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Knowledge Management
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              User-Centric Design
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Empathetic UX
+            </span>
+            <span className="rounded-md bg-neutral-800 px-3 py-1 font-medium text-xs text-neutral-300">
+              Notion
+            </span>
           </div>
         </div>
       ),
@@ -326,22 +378,22 @@ const AboutPage = () => {
         {/* Background container with aspect ratio */}
         <div className="h-[70vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
           {/* Background image */}
-          <Image 
-            src="/about/developer-bg.jpg" 
+          <Image
+            src="/about/developer-bg.jpg"
             alt="Developer background"
             className="object-cover object-center pointer-events-none select-none"
             priority
             fill
           />
-          
+
           {/* Overlay gradients for better text contrast and visual appeal */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
-          
+
           {/* Colored accents for visual interest */}
           <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
           <div className="absolute inset-0 bg-emerald-900/10 mix-blend-multiply"></div>
-          
+
           {/* Content container */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <h2 className="relative z-10 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl max-w-2xl mx-auto">
@@ -363,7 +415,7 @@ const AboutPage = () => {
               </span>
             </h2>
           </div>
-          
+
           {/* Bottom fade to content area */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
         </div>
@@ -378,7 +430,7 @@ const AboutPage = () => {
               I'm Daksh, a proactive full-stack developer passionate about
               creating dynamic web experiences. From frontend to backend, I
               thrive on solving complex problems with clean, efficient code. My
-              expertise spans React, Next.js, and Node.js, and I'm always eager
+              expertise spans React, Next.js, and Product Management, and I'm always eager
               to learn more.
             </p>
             <p>
@@ -454,9 +506,10 @@ const AboutPage = () => {
         {/* Github Contributions */}
         <div className="my-20 flex items-center justify-center gap-10 w-full opacity-90 flex-col lg:flex-row">
           <h2 className="relative z-2 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl text-center mb-0 md:mb-0 lg:text-left lg:text-5xl">
-            <span className="block">Github <br/>
+            <span className="block">
+              Github <br />
               Contributions
-              </span>
+            </span>
           </h2>
           <GitHubCalendar />
         </div>
@@ -480,13 +533,10 @@ const AboutPage = () => {
               </AnimatedGradientText>
             </span>
           </h2>
-
         </div>
       </div>
-      <Contact/>
-      <Footer
-        copyright="Copyright © 2025 Daksh Singh. All rights reserved."
-      />
+      <Contact />
+      <Footer copyright="Copyright © 2025 Daksh Singh. All rights reserved." />
     </main>
   );
 };
