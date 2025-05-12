@@ -13,6 +13,7 @@ import {
 import { useState, useEffect } from "react";
 import { useKBar } from "kbar"; // Import useKBar hook
 import { CommandIcon } from "lucide-react";
+import { BorderBeam } from "./magicui/border-beam";
 
 export function NavbarApp() {
   const navItems = [
@@ -29,19 +30,19 @@ export function NavbarApp() {
       link: "/about",
     },
     {
-      name: "Links",
-      link: "/links",
+      name: "Contact",
+      link: "#contact",
     },
     {
-      name: "Book a call",
+      name: "Resume",
       link: "#contact",
       isButton: true,
-    }
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  
+
   // Get query function from kbar
   const { query } = useKBar();
 
@@ -53,8 +54,8 @@ export function NavbarApp() {
   // Handle scroll and update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => item.link.replace('#', ''));
-      
+      const sections = navItems.map((item) => item.link.replace("#", ""));
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -68,13 +69,13 @@ export function NavbarApp() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
   // Handle navigation item click
   const handleNavItemClick = (sectionId: string) => {
-    setActiveSection(sectionId.replace('#', ''));
+    setActiveSection(sectionId.replace("#", ""));
     setIsMobileMenuOpen(false);
   };
 
@@ -82,15 +83,21 @@ export function NavbarApp() {
   const CustomNavItems = () => (
     <div className="flex-1 flex items-center justify-center">
       <div className="relative flex items-center space-x-1">
-        {navItems.map((item, idx) => 
+        {navItems.map((item, idx) =>
           item.isButton ? (
             <NavbarButton
               key={`nav-item-${idx}`}
               href={item.link}
               onClick={() => handleNavItemClick(item.link)}
-              variant="primary"
+              variant="secondary"
               className="ml-3"
             >
+              <BorderBeam
+                duration={4}
+                size={50}
+                reverse
+                className="from-transparent via-green-500 to-transparent"
+              />
               {item.name}
             </NavbarButton>
           ) : (
@@ -99,12 +106,12 @@ export function NavbarApp() {
               href={item.link}
               onClick={() => handleNavItemClick(item.link)}
               className={`relative px-4 py-2 ${
-                activeSection === item.link.replace('#', '') 
-                  ? "text-black font-medium dark:text-white" 
+                activeSection === item.link.replace("#", "")
+                  ? "text-black font-medium dark:text-white"
                   : "text-neutral-600 dark:text-neutral-300"
               }`}
             >
-              {activeSection === item.link.replace('#', '') && (
+              {activeSection === item.link.replace("#", "") && (
                 <div className="absolute inset-0 bg-gray-100 rounded-full dark:bg-neutral-800" />
               )}
               <span className="relative z-10">{item.name}</span>
@@ -123,8 +130,8 @@ export function NavbarApp() {
           <NavbarLogo />
           <CustomNavItems />
           <div className="flex items-center">
-            <NavbarButton 
-              variant="secondary" 
+            <NavbarButton
+              variant="secondary"
               onClick={handleCommandButtonClick}
               className="flex items-center gap-2"
             >
@@ -148,15 +155,21 @@ export function NavbarApp() {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item, idx) => (
+            {navItems.map((item, idx) =>
               item.isButton ? (
                 <NavbarButton
                   key={`mobile-button-${idx}`}
                   href={item.link}
                   onClick={() => handleNavItemClick(item.link)}
-                  variant="primary"
+                  variant="secondary"
                   className="w-full"
                 >
+                  <BorderBeam
+                duration={4}
+                size={100}
+                reverse
+                className="from-transparent via-green-500 to-transparent"
+              />
                   {item.name}
                 </NavbarButton>
               ) : (
@@ -165,15 +178,15 @@ export function NavbarApp() {
                   href={item.link}
                   onClick={() => handleNavItemClick(item.link)}
                   className={`relative w-full py-2 ${
-                    activeSection === item.link.replace('#', '') 
-                      ? "text-black font-medium dark:text-white" 
+                    activeSection === item.link.replace("#", "")
+                      ? "text-black font-medium dark:text-white"
                       : "text-neutral-600 dark:text-neutral-300"
                   }`}
                 >
                   <span className="block">{item.name}</span>
                 </a>
               )
-            ))}
+            )}
             <NavbarButton
               onClick={handleCommandButtonClick}
               variant="secondary"
