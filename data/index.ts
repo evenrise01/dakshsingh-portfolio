@@ -172,3 +172,49 @@ export const navItems = [
     { name: "Codepen", logo: Codepen, href: "https://codepen.io/evenrise01" },
   ];
   
+  export const files = [
+    {
+      name: "User Dashboard",
+      body: "The user dashboard provides a personalized overview of key information, such as usage stats, recent activity, and access to essential tools. It's the first impression and main interaction hub for users.",
+    },
+    {
+      name: "Email Client",
+      body: "An integrated email client allows users to communicate directly from within the platform. Features often include threading, filtering, tagging, and rich-text editing, enabling seamless internal and external correspondence.",
+    },
+    {
+      name: "Command Bar",
+      body: "The command bar boosts efficiency by allowing users to navigate and perform actions using keyboard shortcuts or fuzzy search. It's essential for power users and improving workflow speed.",
+    },
+    {
+      name: "Analytics & Insights",
+      body: "Analytics modules track user behavior, feature usage, and system metrics. Visual dashboards and customizable reports help stakeholders make informed decisions and improve the product iteratively.",
+    },
+    {
+      name: "AI Integration",
+      body: "AI features enhance the user experience with intelligent automation, predictive suggestions, chat assistants, and natural language processing, enabling smarter workflows across the platform.",
+    },
+    {
+      name: "Authentication & Authorization",
+      body: "Secure login, registration, multi-factor authentication, and role-based access control are foundational for managing who can access what within the SaaS platform.",
+    },
+    {
+      name: "Billing & Subscriptions",
+      body: "This module handles pricing plans, payment gateways, invoicing, and user subscriptions. It ensures monetization is smooth and transparent for both users and the business.",
+    },
+    {
+      name: "Onboarding Experience",
+      body: "A smooth onboarding experience, with tooltips, guides, and tutorials, ensures users quickly understand the value of the platform and reach their first 'aha!' moment with minimal friction.",
+    },
+    {
+      name: "Admin Panel",
+      body: "The admin panel allows internal teams to manage users, content, configurations, and system health. It’s critical for moderation, support, and platform control.",
+    },
+    {
+      name: "Notifications System",
+      body: "A flexible notification system supports email, in-app, and push alerts. It keeps users informed about updates, actions, and reminders without overwhelming them.",
+    },
+    {
+      name: "File Storage & Management",
+      body: "This component supports file uploads, previews, sharing, and storage using cloud integrations like AWS S3. It’s essential for content-heavy SaaS apps.",
+    },
+  ];

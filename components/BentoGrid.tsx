@@ -1,9 +1,4 @@
-import {
-  Bot,
-  HeartHandshake,
-  Layout,
-  MapPin,
-} from "lucide-react";
+import { Bot, HeartHandshake, Layout, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatedBeamDemo } from "./magicui/animated-beam-demo";
 import { BentoCard, BentoGrid } from "./magicui/bento-grid";
@@ -12,56 +7,8 @@ import Earth from "./ui/globe";
 import { BorderBeam } from "./magicui/border-beam";
 import { IconCloud } from "./magicui/icon-cloud";
 import { AnimatedShinyText } from "./magicui/animated-shiny-text";
-import { slugs } from "@/data";
+import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
-
-const files = [
-  {
-    name: "User Dashboard",
-    body: "The user dashboard provides a personalized overview of key information, such as usage stats, recent activity, and access to essential tools. It's the first impression and main interaction hub for users.",
-  },
-  {
-    name: "Email Client",
-    body: "An integrated email client allows users to communicate directly from within the platform. Features often include threading, filtering, tagging, and rich-text editing, enabling seamless internal and external correspondence.",
-  },
-  {
-    name: "Command Bar",
-    body: "The command bar boosts efficiency by allowing users to navigate and perform actions using keyboard shortcuts or fuzzy search. It's essential for power users and improving workflow speed.",
-  },
-  {
-    name: "Analytics & Insights",
-    body: "Analytics modules track user behavior, feature usage, and system metrics. Visual dashboards and customizable reports help stakeholders make informed decisions and improve the product iteratively.",
-  },
-  {
-    name: "AI Integration",
-    body: "AI features enhance the user experience with intelligent automation, predictive suggestions, chat assistants, and natural language processing, enabling smarter workflows across the platform.",
-  },
-  {
-    name: "Authentication & Authorization",
-    body: "Secure login, registration, multi-factor authentication, and role-based access control are foundational for managing who can access what within the SaaS platform.",
-  },
-  {
-    name: "Billing & Subscriptions",
-    body: "This module handles pricing plans, payment gateways, invoicing, and user subscriptions. It ensures monetization is smooth and transparent for both users and the business.",
-  },
-  {
-    name: "Onboarding Experience",
-    body: "A smooth onboarding experience, with tooltips, guides, and tutorials, ensures users quickly understand the value of the platform and reach their first 'aha!' moment with minimal friction.",
-  },
-  {
-    name: "Admin Panel",
-    body: "The admin panel allows internal teams to manage users, content, configurations, and system health. It’s critical for moderation, support, and platform control.",
-  },
-  {
-    name: "Notifications System",
-    body: "A flexible notification system supports email, in-app, and push alerts. It keeps users informed about updates, actions, and reminders without overwhelming them.",
-  },
-  {
-    name: "File Storage & Management",
-    body: "This component supports file uploads, previews, sharing, and storage using cloud integrations like AWS S3. It’s essential for content-heavy SaaS apps.",
-  },
-];
-
 
 const images = slugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
@@ -71,7 +18,8 @@ const features = [
   {
     Icon: HeartHandshake,
     name: "Collaboration",
-    description: "I prioritize client collaboration, fostering open communication",
+    description:
+      "I prioritize client collaboration, fostering open communication",
     href: "#",
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
@@ -142,9 +90,7 @@ const features = [
             <br />
             on your next project!
           </AnimatedShinyText>
-          <button
-            className="items-center gap-2 py-2 sm:py-3 mt-2 sm:mt-4 text-sm sm:text-base font-light text-white/75 outline-hidden transition-all duration-300 cursor-pointer hover:text-white/90 flex w-full justify-center rounded-xl px-4 sm:px-10 shadow-[inset_0_3px_10px_#ffffff3f] max-w-xs mx-auto"
-          >
+          <button className="items-center gap-2 py-2 sm:py-3 mt-2 sm:mt-4 text-sm sm:text-base font-light text-white/75 outline-hidden transition-all duration-300 cursor-pointer hover:text-white/90 flex w-full justify-center rounded-xl px-4 sm:px-10 shadow-[inset_0_3px_10px_#ffffff3f] max-w-xs mx-auto">
             dakshsingh.shanu@gmail.com
           </button>
         </div>
@@ -180,7 +126,9 @@ const features = [
                 </figcaption>
               </div>
             </div>
-            <blockquote className="mt-1 sm:mt-2 text-[10px] sm:text-xs">{f.body}</blockquote>
+            <blockquote className="mt-1 sm:mt-2 text-[10px] sm:text-xs">
+              {f.body}
+            </blockquote>
           </figure>
         ))}
       </Marquee>
@@ -189,21 +137,21 @@ const features = [
 ];
 
 export function BentoFeatureGrid() {
-  const [currentTime, setCurrentTime] = useState('India - Loading...');
+  const [currentTime, setCurrentTime] = useState("India - Loading...");
 
   useEffect(() => {
     const updateTime = () => {
       const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
+        timeZone: "Asia/Kolkata",
         hour12: true,
-        hour: '2-digit',
-        minute: '2-digit'
+        hour: "2-digit",
+        minute: "2-digit",
       };
-      const formatter = new Intl.DateTimeFormat('en-IN', options);
+      const formatter = new Intl.DateTimeFormat("en-IN", options);
       const parts = formatter.formatToParts(new Date());
-      const hour = parts.find(part => part.type === 'hour')?.value;
-      const minute = parts.find(part => part.type === 'minute')?.value;
-      const dayPeriod = parts.find(part => part.type === 'dayPeriod')?.value;
+      const hour = parts.find((part) => part.type === "hour")?.value;
+      const minute = parts.find((part) => part.type === "minute")?.value;
+      const dayPeriod = parts.find((part) => part.type === "dayPeriod")?.value;
       setCurrentTime(`India - ${hour}:${minute} ${dayPeriod}`);
     };
 
@@ -213,11 +161,11 @@ export function BentoFeatureGrid() {
     return () => clearInterval(interval);
   }, []);
 
-  const updatedFeatures = features.map(feature => {
+  const updatedFeatures = features.map((feature) => {
     if (feature.name === "Remote") {
       return {
         ...feature,
-        description: currentTime
+        description: currentTime,
       };
     }
     return feature;
