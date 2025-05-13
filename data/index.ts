@@ -206,15 +206,7 @@ export const navItems = [
       body: "A smooth onboarding experience, with tooltips, guides, and tutorials, ensures users quickly understand the value of the platform and reach their first 'aha!' moment with minimal friction.",
     },
     {
-      name: "Admin Panel",
-      body: "The admin panel allows internal teams to manage users, content, configurations, and system health. It’s critical for moderation, support, and platform control.",
-    },
-    {
       name: "Notifications System",
       body: "A flexible notification system supports email, in-app, and push alerts. It keeps users informed about updates, actions, and reminders without overwhelming them.",
-    },
-    {
-      name: "File Storage & Management",
-      body: "This component supports file uploads, previews, sharing, and storage using cloud integrations like AWS S3. It’s essential for content-heavy SaaS apps.",
     },
   ];

@@ -104,7 +104,7 @@ const AboutPage = () => {
             </button>
           </div>
         </div>
-        <a className="group flex items-center justify-center gap-2 text-neutral-300 group-hover:text-neutral-100 mt-10 lg:justify-start" href="/about">
+        <a className="group flex items-center justify-center gap-2 text-neutral-300 group-hover:text-neutral-100 mt-10 lg:justify-start z-10" href="/about">
             More about me <ChevronRight/>
         </a>
       </div>

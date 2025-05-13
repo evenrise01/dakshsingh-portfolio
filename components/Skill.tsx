@@ -108,7 +108,7 @@ const SkillPage = () => {
       </div>
 
       <motion.div
-        className="relative z-10 mx-auto my-16 flex max-w-4xl flex-wrap justify-center gap-2 text-lg text-gray-800 lg:gap-4"
+        className="relative z-10 mx-auto mb-16 flex max-w-4xl flex-wrap justify-center gap-2 text-lg text-gray-800 lg:gap-4"
         variants={container}
         initial="hidden"
         whileInView="show"

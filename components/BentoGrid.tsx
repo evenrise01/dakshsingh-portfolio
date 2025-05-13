@@ -20,12 +20,12 @@ const features = [
     name: "Collaboration",
     description:
       "I prioritize client collaboration, fostering open communication",
-    href: "#",
+    href: "#contact",
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
     background: (
       <div className="absolute inset-0 flex justify-center items-center">
-        <AnimatedBeamDemo />
+        {/* <AnimatedBeamDemo /> */}
       </div>
     ),
   },
@@ -33,7 +33,7 @@ const features = [
     Icon: MapPin,
     name: "Remote",
     description: "India - 06:24 pm",
-    href: "#",
+    href: "#contact",
     cta: "Connect now",
     className: "col-span-6 md:col-span-3 lg:col-span-2 md:row-span-2",
     background: (
@@ -59,7 +59,7 @@ const features = [
     Icon: Bot,
     name: "Tech Enthusiast",
     description: "Passionate about cutting edge technologies",
-    href: "#",
+    href: "#skills",
     cta: "Know more",
     className: "col-span-6 md:col-span-3 lg:col-span-2 md:row-span-2",
     background: (
@@ -101,7 +101,7 @@ const features = [
     Icon: Layout,
     name: "Currently building an AI Email SaaS",
     description: "The Inside Scoop",
-    href: "#",
+    href: "#work",
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
     background: (

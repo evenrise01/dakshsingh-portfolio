@@ -11,16 +11,18 @@ import Testimonials from "@/components/Testimonials";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
+import ProjectsNew from "@/components/ProjectsNew";
+import AnimatedProjects from "@/components/Projects";
 
 
 export default function Home() {
   return (
     <>
-      <main className="relative flex justify-center items-center flex-col overflow-hidden bg-black">
+      <main className="relative flex justify-center items-center flex-col">
         <div className="w-full">
           <Hero />
           <BentoFeatureGrid />
-          <Projects />
+          <AnimatedProjects />
           {/* <Experience/> */}
           <SkillPage />
           <AboutPage />
