@@ -6,9 +6,11 @@ import { Marquee } from "./magicui/marquee";
 import Earth from "./ui/globe";
 import { BorderBeam } from "./magicui/border-beam";
 import { IconCloud } from "./magicui/icon-cloud";
-import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
+import { ContactCard } from "./ContactCardBentoItem";
+import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
+import AnimatedGradientBackground from "./ui/animated-gradient-background";
 
 const images = slugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
@@ -20,12 +22,21 @@ const features = [
     name: "Collaboration",
     description:
       "I prioritize client collaboration, fostering open communication",
-    href: "#contact",
+    href: "#work",
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
     background: (
       <div className="absolute inset-0 flex justify-center items-center">
-        {/* <AnimatedBeamDemo /> */}
+        {/* <BackgroundGradientAnimation/> */}
+        <AnimatedGradientBackground gradientColors={[
+    "#000000",       // Deep rose (base)
+    "#000000",       // Burgundy red
+    "#CC3366",       // Rose red
+    "#FF5588",       // Vibrant pink
+    "#FF7799",       // Medium pink
+    "#FFAABB",       // Soft pink
+    "#FFCCDD"        // Pale blush
+]}/>
       </div>
     ),
   },
@@ -72,29 +83,18 @@ const features = [
     className: "col-span-6 md:col-span-3 lg:col-span-2",
     href: "N/A",
     background: (
-      <div className="flex flex-col items-center justify-center w-full h-full rounded-lg p-4 sm:p-8 text-center">
-        <BorderBeam
-          duration={6}
-          size={250}
-          className="from-transparent via-pink-500 to-transparent"
-        />
-        <BorderBeam
-          duration={6}
-          delay={3}
-          size={250}
-          className="from-transparent via-cyan-500 to-transparent"
-        />
-        <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-6 relative z-10 my-4 sm:my-8">
-          <AnimatedShinyText className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-300">
-            Let's work together
-            <br />
-            on your next project!
-          </AnimatedShinyText>
-          <button className="items-center gap-2 py-2 sm:py-3 mt-2 sm:mt-4 text-sm sm:text-base font-light text-white/75 outline-hidden transition-all duration-300 cursor-pointer hover:text-white/90 flex w-full justify-center rounded-xl px-4 sm:px-10 shadow-[inset_0_3px_10px_#ffffff3f] max-w-xs mx-auto">
-            dakshsingh.shanu@gmail.com
-          </button>
-        </div>
-      </div>
+      <div><BorderBeam
+      duration={6}
+      size={250}
+      className="from-transparent via-emerald-500 to-transparent"
+    />
+    <BorderBeam
+      duration={6}
+      delay={3}
+      size={250}
+      className="from-transparent via-amber-500 to-transparent"
+    /><ContactCard /></div>
+      
     ),
   },
   {
@@ -138,7 +138,17 @@ const features = [
 
 export function BentoFeatureGrid() {
   const [currentTime, setCurrentTime] = useState("India - Loading...");
+  const [copied, setCopied] = useState(false);
+  const email = "dakshsingh.shanu@gmail.com";
+  
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
+  
   useEffect(() => {
     const updateTime = () => {
       const options: Intl.DateTimeFormatOptions = {

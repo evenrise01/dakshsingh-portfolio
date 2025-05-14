@@ -6,6 +6,7 @@ import { Copy } from "lucide-react";
 import ContactDrawer from "./ui/contact-drawer";
 import { Spotlight } from "./spotlight-new";
 import { SingleSpotlight } from "./ui/single-spotlight";
+import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -59,7 +60,6 @@ const Hero = () => {
   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full overflow-hidden bg-black px-4 md:px-6">
-    
       <motion.div 
         className="flex flex-col items-center justify-center max-w-5xl mx-auto mt-10 md:mt-20"
         initial="hidden"

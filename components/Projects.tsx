@@ -35,26 +35,33 @@ const projects: Project[] = [
     title: "Hypermail",
     slug: "hypermail",
     description:
-      "A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas. It's built to impress both users and investors with blazing speed, compelling visuals, and a modern tech stack.",
-    features: [
-      "Leveraged Partial Prerendering and After for faster loading.",
-      "Simplified idea submission with a clean, intuitive design.",
-      "Enhanced browsing with seamless performance optimization.",
-    ],
+      "HyperMail is the ultimate AI email client and assistant that automates organization, prioritizes important messages, and drafts smart replies. Boost productivity and declutter your inbox with cutting-edge AI.",
+      features: [
+        "Leveraged Clerk and Stripe for easy authentication and payment processing.",
+        "Designed and implemented sleek, modern and minimalistic UI.",
+        "Created Smart AI Compose and drafting to have drafts on ready for incoming emails.",
+        "Implemented vector search and Chatbot for accurate, high-speed email search results with Orama and Gemini.",
+        "Crafted a user-friendly command bar for easier navigation and accessibility around Hypermail. ",
+      ],
     technologies: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
       { name: "React", icon: "https://cdn.simpleicons.org/react" },
+      { name: "Clerk", icon: "https://cdn.simpleicons.org/clerk" },
+      {
+        name: "Axios",
+        icon: "https://cdn.simpleicons.org/axios",
+      },
+      { name: "Stripe", icon: "https://cdn.simpleicons.org/stripe" },
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
       { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer" },
-      { name: "Sanity cms", icon: "https://cdn.simpleicons.org/sanity" },
-      { name: "Auth.js", icon: "https://cdn.simpleicons.org/nextdns" },
-      {
-        name: "markdown",
-        icon: "https://cdn.simpleicons.org/markdown/lightblue",
-      },
-      { name: "GROQ", icon: "https://cdn.simpleicons.org/zod" },
-      { name: "Sentry", icon: "https://cdn.simpleicons.org/sentry/violet" },
+      
+      
+      { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
+      { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/blue" },
+      { name: "Prisma ORM", icon: "https://cdn.simpleicons.org/prisma" },
+
+
     ],
     image: "/hypermail.png",
     bgGradient:
@@ -73,11 +80,11 @@ const projects: Project[] = [
     title: "GitMind",
     slug: "gitmind",
     description:
-      "A platform connecting students and instructors for enhanced learning experiences.",
+      "A platform that empowers development teams with instant insights into GitHub repositories and meeting discussions. Designed to streamline onboarding, enhance productivity, and improve team alignment, GitMind delivers features that address real-world workflow gaps.",
     features: [
-      "Intelligent matching system pairs students with ideal instructors.",
-      "Interactive learning dashboard with progress tracking.",
-      "Real-time communication and feedback system.",
+      "Delivered codebase insights by analyzing GitHub commit history and surfacing smart summaries.",
+      "Built a searchable, living reference of questions and answers about your code—perfect for onboarding juniors or quickly recalling past decisions.",
+      "Transcribed and summarized meeting audio to ensure team alignment and easy access to key decisions.",
     ],
     technologies: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
@@ -85,7 +92,11 @@ const projects: Project[] = [
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
       { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer" },
-      { name: "Socket.io", icon: "https://cdn.simpleicons.org/socketdotio" },
+      { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
+      { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/blue" },
+      { name: "Prisma ORM", icon: "https://cdn.simpleicons.org/prisma" },
+      { name: "Stripe", icon: "https://cdn.simpleicons.org/stripe" },
+      { name: "Clerk", icon: "https://cdn.simpleicons.org/clerk" },
     ],
     image: "/gitmind.png",
     bgGradient:
@@ -104,17 +115,19 @@ const projects: Project[] = [
     title: "Personal Portfolio",
     slug: "personal-portfolio",
     description:
-      "Effortlessly convert images, audio, and videos with a seamless and free multimedia tool!",
+      "A personal portfolio showcasing modern web design and user experience with sleek layouts, smooth animations, and highlights of my skills and projects.",
     features: [
-      "Fast conversion between multiple file formats.",
-      "Batch processing for multiple files.",
-      "Cloud storage integration for easy file management.",
+      "Built with Next.js and TypeScript for performance and scalability.",
+      "Used framer motion and used component libraries for interactive and animated UI.",
+      "Implemented a command bar for easier navigation across the website.",
     ],
     technologies: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
       { name: "React", icon: "https://cdn.simpleicons.org/react" },
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
-      { name: "FFMPEG WASM", icon: "https://cdn.simpleicons.org/ffmpeg" },
+      { name: "Shadcn", icon: "https://cdn.simpleicons.org/shadcnui/white" },
+
+
     ],
     image: "/personal-portfolio-project.png",
     bgGradient:
@@ -155,7 +168,7 @@ const ProjectCard = ({
     >
       <div className="flex flex-col w-full mx-auto sm:mx-2 md:mx-4 lg:mx-10">
         <Link
-          href={`/projects/${project.slug}`}
+          href={`/work/${project.slug}`}
           draggable="false"
           className="relative cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border border-white/15 bg-[#f2f2f20c] p-1 sm:p-1.5 shadow-2xl md:h-[400px] lg:h-[560px] lg:rounded-3xl lg:p-2"
           onClick={(e) => {

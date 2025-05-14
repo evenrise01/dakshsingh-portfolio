@@ -21,8 +21,7 @@ export const navItems = [
     "nodedotjs",
     "express",
     "nextdotjs",
-    "prisma",
-    "amazonaws",
+    "prisma",,
     "postgresql",
     "firebase",
     "nginx",
@@ -98,69 +97,6 @@ export const navItems = [
     { name: "Sentry", icon: "https://cdn.simpleicons.org/sentry/violet" }
   ]
 
-  // export const footerBranding = {
-  //   name: "Daksh Singh",
-  //   description: "Help you create experiences where aesthetics & functionality seamlessly come together.",
-  // }
-
-  // export const footerSocialLinks = [
-  //   {
-  //     name: "Twitter",
-  //     href: "https://x.com/raymethula",
-  //   },
-  //   {
-  //     name: "Github",
-  //     href: "https://github.com/serafimcloud",
-  //   },
-  //   {
-  //     name: "LinkedIn",
-  //     href: "#",
-  //   },
-  // ]
-
-  // export const footerColumns = [
-  //   {
-  //     title: "General",
-  //     links: [
-  //       {
-  //         name: "Home",
-  //         Icon: Blocks,
-  //         href: "#features",
-  //       },
-  //       {
-  //         name: "About",
-  //         Icon: LucideUser,
-  //         href: "#pricing",
-  //       },
-  //       {
-  //         name: "Projects",
-  //         Icon: Webhook,
-  //         href: "#integrations",
-  //       },
-      
-  //     ],
-  //   },
-  //   {
-  //     title: "The Website",
-  //     links: [
-  //       {
-  //         name: "Bucket List",
-  //         Icon: PenBoxIcon,
-  //         href: "/compare/plausible",
-  //       },
-  //       {
-  //         name: "Links",
-  //         Icon: Link,
-  //         href: "/compare/matomo",
-  //       },
-  //       {
-  //         name: "Book a call",
-  //         Icon: Calendar,
-  //         href: "/compare/google-analytics",
-  //       },
-  //     ],
-  //   },
-  // ]
 
   export const links = [
     {
