@@ -1,6 +1,5 @@
 import { Bot, HeartHandshake, Layout, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AnimatedBeamDemo } from "./magicui/animated-beam-demo";
 import { BentoCard, BentoGrid } from "./magicui/bento-grid";
 import { Marquee } from "./magicui/marquee";
 import Earth from "./ui/globe";
@@ -9,9 +8,7 @@ import { IconCloud } from "./magicui/icon-cloud";
 import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
 import { ContactCard } from "./ContactCardBentoItem";
-import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
-import AnimatedGradientBackground from "./ui/animated-gradient-background";
-
+import Image from "next/image"
 const images = slugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
 );
@@ -26,17 +23,8 @@ const features = [
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
     background: (
-      <div className="absolute inset-0 flex justify-center items-center">
-        {/* <BackgroundGradientAnimation/> */}
-        <AnimatedGradientBackground gradientColors={[
-    "#000000",       // Deep rose (base)
-    "#000000",       // Burgundy red
-    "#CC3366",       // Rose red
-    "#FF5588",       // Vibrant pink
-    "#FF7799",       // Medium pink
-    "#FFAABB",       // Soft pink
-    "#FFCCDD"        // Pale blush
-]}/>
+      <div className="size-full">
+       
       </div>
     ),
   },

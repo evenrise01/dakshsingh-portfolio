@@ -13,6 +13,7 @@ import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
 import ProjectsNew from "@/components/ProjectsNew";
 import AnimatedProjects from "@/components/Projects";
+import HeroNew from "@/components/HeroNew";
 
 
 export default function Home() {
@@ -20,7 +21,8 @@ export default function Home() {
     <>
       <main className="relative flex justify-center items-center flex-col">
         <div className="w-full">
-          <Hero />
+          {/* <Hero /> */}
+          <HeroNew/>
           <BentoFeatureGrid />
           <AnimatedProjects />
           {/* <Experience/> */}

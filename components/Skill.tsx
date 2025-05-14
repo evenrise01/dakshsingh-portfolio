@@ -108,7 +108,7 @@ const SkillPage = () => {
       </div>
 
       <motion.div
-        className="relative z-10 mx-auto mb-16 flex max-w-4xl flex-wrap justify-center gap-2 text-lg text-gray-800 lg:gap-4"
+        className="relative z-10 mx-auto mb-24 flex max-w-4xl flex-wrap justify-center gap-2 text-lg text-gray-800 lg:gap-4"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -150,54 +150,9 @@ const SkillPage = () => {
           </motion.div>
         ))}
       </motion.div>
-
-      {isMounted && <ParticlesBackground />}
     </section>
   );
 };
 
-// Create a subtle particles background effect
-const ParticlesBackground = () => {
-  // Create an array of particles
-  const particleCount = 15;
-  const particles = Array.from({ length: particleCount });
-
-  return (
-    <div className="absolute inset-0 z-5 overflow-hidden pointer-events-none">
-      {particles.map((_, index) => {
-        // Randomize particle properties for more natural look
-        const size = Math.random() * 6 + 2;
-        const initialX = Math.random() * 100;
-        const initialY = Math.random() * 100;
-        const duration = Math.random() * 15 + 10;
-        const delay = Math.random() * 5;
-
-        return (
-          <motion.div
-            key={index}
-            className="absolute rounded-full bg-white/10"
-            style={{
-              width: size,
-              height: size,
-              left: `${initialX}%`,
-              top: `${initialY}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 0.3, 0],
-              scale: [1, 1.2, 0.8],
-            }}
-            transition={{
-              duration: duration,
-              repeat: Infinity,
-              repeatType: "mirror" as const,
-              ease: "easeInOut",
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-};
 
 export default SkillPage;

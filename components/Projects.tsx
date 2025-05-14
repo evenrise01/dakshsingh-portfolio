@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronRight, Github } from "lucide-react";
 import { useInView } from "framer-motion";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { usePathname } from "next/navigation";
@@ -27,6 +27,8 @@ interface Project {
     text: string;
     bg: string;
   };
+  githubUrl: string;
+  liveUrl: string;
 }
 // Sample projects data
 const projects: Project[] = [
@@ -36,13 +38,13 @@ const projects: Project[] = [
     slug: "hypermail",
     description:
       "HyperMail is the ultimate AI email client and assistant that automates organization, prioritizes important messages, and drafts smart replies. Boost productivity and declutter your inbox with cutting-edge AI.",
-      features: [
-        "Leveraged Clerk and Stripe for easy authentication and payment processing.",
-        "Designed and implemented sleek, modern and minimalistic UI.",
-        "Created Smart AI Compose and drafting to have drafts on ready for incoming emails.",
-        "Implemented vector search and Chatbot for accurate, high-speed email search results with Orama and Gemini.",
-        "Crafted a user-friendly command bar for easier navigation and accessibility around Hypermail. ",
-      ],
+    features: [
+      "Leveraged Clerk and Stripe for easy authentication and payment processing.",
+      "Designed and implemented sleek, modern and minimalistic UI.",
+      "Created Smart AI Compose and drafting to have drafts on ready for incoming emails.",
+      "Implemented vector search and Chatbot for accurate, high-speed email search results with Orama and Gemini.",
+      "Crafted a user-friendly command bar for easier navigation and accessibility around Hypermail. ",
+    ],
     technologies: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white" },
       { name: "React", icon: "https://cdn.simpleicons.org/react" },
@@ -55,13 +57,10 @@ const projects: Project[] = [
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
       { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer" },
-      
-      
+
       { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
       { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/blue" },
       { name: "Prisma ORM", icon: "https://cdn.simpleicons.org/prisma" },
-
-
     ],
     image: "/hypermail.png",
     bgGradient:
@@ -74,6 +73,8 @@ const projects: Project[] = [
       text: "text-pink-400",
       bg: "bg-pink-600/20",
     },
+    githubUrl: "",
+    liveUrl: "",
   },
   {
     id: "gitmind",
@@ -109,6 +110,8 @@ const projects: Project[] = [
       text: "text-blue-400",
       bg: "bg-blue-600/20",
     },
+    githubUrl: "",
+    liveUrl: "",
   },
   {
     id: "personal-portfolio",
@@ -126,8 +129,6 @@ const projects: Project[] = [
       { name: "React", icon: "https://cdn.simpleicons.org/react" },
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
       { name: "Shadcn", icon: "https://cdn.simpleicons.org/shadcnui/white" },
-
-
     ],
     image: "/personal-portfolio-project.png",
     bgGradient:
@@ -140,6 +141,8 @@ const projects: Project[] = [
       text: "text-emerald-400",
       bg: "bg-emerald-600/20",
     },
+    githubUrl: "",
+    liveUrl: "",
   },
 ];
 
@@ -168,7 +171,7 @@ const ProjectCard = ({
     >
       <div className="flex flex-col w-full mx-auto sm:mx-2 md:mx-4 lg:mx-10">
         <Link
-          href={`/work/${project.slug}`}
+          href={`/work/${project.liveUrl}`}
           draggable="false"
           className="relative cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border border-white/15 bg-[#f2f2f20c] p-1 sm:p-1.5 shadow-2xl md:h-[400px] lg:h-[560px] lg:rounded-3xl lg:p-2"
           onClick={(e) => {
@@ -216,6 +219,48 @@ const ProjectCard = ({
             />
           </div>
         </Link>
+        
+        {/* Improved buttons section */}
+        <div className="flex flex-row justify-between items-center mt-4 w-full px-1 sm:px-2">
+          {/* Project title on mobile - new addition */}
+          <div className="flex-grow mr-2 lg:hidden">
+            <h3 className="text-sm sm:text-base font-medium truncate">{project.title}</h3>
+          </div>
+          
+          {/* Action buttons container */}
+          <div className="flex flex-row gap-2 sm:gap-3">
+            {/* GitHub button - improved */}
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200"
+              aria-label="View GitHub repository"
+            >
+              <Github className="size-4 sm:size-5 text-white/80 group-hover:text-white" />
+            </a>
+            
+            {/* Live URL button - improved */}
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between rounded-full bg-neutral-800 hover:bg-neutral-700 px-3 sm:px-4 py-1 transition-all duration-200 border border-white/10"
+            >
+              <span className="text-sm sm:text-base font-medium text-white/90 group-hover:text-white">
+                View Live
+              </span>
+              <div className="relative ml-1 sm:ml-2 size-5 sm:size-6 overflow-hidden">
+                <div className="absolute inset-0 grid place-content-center transition-all duration-200 group-hover:translate-x-8 group-hover:-translate-y-8">
+                  <ArrowUpRight className="size-4 sm:size-5" />
+                </div>
+                <div className="absolute inset-0 grid place-content-center transition-all duration-200 -translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0">
+                  <ArrowUpRight className="size-4 sm:size-5" />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -379,40 +424,42 @@ const AnimatedProjects = () => {
   const pathname = usePathname();
   return (
     <div>
-      {pathname === '/work' && <div className="h-[80vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
-        {/* Background image */}
-        <Image
-          src="/nasa-Q1p7bh3SHj8-unsplash.jpg"
-          alt="Developer background"
-          className="object-cover object-center pointer-events-none select-none"
-          priority
-          fill
-        />
+      {pathname === "/work" && (
+        <div className="h-[80vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
+          {/* Background image */}
+          <Image
+            src="/nasa-Q1p7bh3SHj8-unsplash.jpg"
+            alt="Developer background"
+            className="object-cover object-center pointer-events-none select-none"
+            priority
+            fill
+          />
 
-        {/* Overlay gradients for better text contrast and visual appeal */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+          {/* Overlay gradients for better text contrast and visual appeal */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
 
-        {/* Colored accents for visual interest */}
-        <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-emerald-900/10 mix-blend-multiply"></div>
+          {/* Colored accents for visual interest */}
+          <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-emerald-900/10 mix-blend-multiply"></div>
 
-        {/* Content container */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <h2 className="relative z-10 text-5xl font-medium tracking-tight sm:text-5xl md:text-6xl max-w-2xl mx-auto">
-            <p className="mb-3 text-xs font-normal tracking-widest text-gray-400 uppercase md:text-sm">
-              Featured Projects
-            </p>
-            <span>Curated</span>{" "}
-            <AnimatedGradientText className="tangerine-bold pr-6 text-5xl md:text-6xl lg:text-7xl">
-              Work
-            </AnimatedGradientText>
-          </h2>
+          {/* Content container */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h2 className="relative z-10 text-5xl font-medium tracking-tight sm:text-5xl md:text-6xl max-w-2xl mx-auto">
+              <p className="mb-3 text-xs font-normal tracking-widest text-gray-400 uppercase md:text-sm">
+                Featured Projects
+              </p>
+              <span>Curated</span>{" "}
+              <AnimatedGradientText className="tangerine-bold pr-6 text-5xl md:text-6xl lg:text-7xl">
+                Work
+              </AnimatedGradientText>
+            </h2>
+          </div>
+
+          {/* Bottom fade to content area */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
         </div>
-
-        {/* Bottom fade to content area */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
-      </div>}
+      )}
       <section
         ref={sectionRef}
         id="work"
@@ -458,11 +505,16 @@ const AnimatedProjects = () => {
             </div>
           ))}
         </div>
-        {pathname === '/' && <div className="flex items-center justify-center my-12">
-        <a className="group flex items-center justify-center gap-2 text-neutral-300 group-hover:text-neutral-100 mt-10 lg:justify-start z-10" href="/work">
-            See More Projects <ChevronRight/>
-        </a>
-        </div>}
+        {pathname === "/" && (
+          <div className="flex items-center justify-center my-12">
+            <a
+              className="group flex items-center justify-center gap-2 text-neutral-300 group-hover:text-neutral-100 mt-10 lg:justify-start z-10"
+              href="/work"
+            >
+              See More Projects <ChevronRight />
+            </a>
+          </div>
+        )}
       </section>
     </div>
   );
