@@ -32,7 +32,6 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
       size = "medium",
       ...props
     },
-    ref
   ) => {
     const buttonRef = React.useRef<HTMLButtonElement>(null);
     const [isListening, setIsListening] = React.useState<boolean>(false);

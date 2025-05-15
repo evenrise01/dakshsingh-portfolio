@@ -158,10 +158,10 @@ const BucketListPage: React.FC = () => {
                 THE BUCKET LIST
               </p>
               <span className="md:text-6xl text-white">
-                The Things I'll Do
+                The Things I&apos;ll Do
                 <br />
                 <span className="tangerine-bold">
-                  <AnimatedGradientText>Before I'm Done</AnimatedGradientText>
+                  <AnimatedGradientText>Before I&apos;m Done</AnimatedGradientText>
                 </span>
               </span>
             </h2>

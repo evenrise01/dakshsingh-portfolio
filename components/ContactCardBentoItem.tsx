@@ -17,7 +17,7 @@ export function ContactCard() {
     <div className="relative flex flex-col items-center justify-center w-full h-full rounded-lg p-4 sm:p-12 text-center">
       <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-6 relative z-10 my-4 sm:my-4">
         <AnimatedShinyText className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-300 mt-14 md:mt-0">
-          Let's work together
+          Let&apos;s work together
           <br className="block sm:block" />
           on your next project!
         </AnimatedShinyText>

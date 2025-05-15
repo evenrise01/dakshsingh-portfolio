@@ -1,6 +1,5 @@
 import AnimatedProjects from '@/components/Projects'
 import React from 'react'
-import Image from 'next/image'
 import Contact from '@/components/Contact'
 import { Footer } from '@/components/footer'
 const WorkPage = () => {

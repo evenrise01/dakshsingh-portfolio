@@ -1,7 +1,6 @@
 import {
   Bot,
   Handshake,
-  HandshakeIcon,
   HeartHandshake,
   Layout,
   MapPin,
@@ -14,7 +13,6 @@ import { IconCloud } from "./magicui/icon-cloud";
 import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
 import { ContactCard } from "./ContactCardBentoItem";
-import AnimatedGradientBackground from "./ui/animated-gradient-background";
 
 const images = slugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
@@ -31,17 +29,6 @@ const features = [
     background: (
       <div className="absolute inset-0 overflow-hidden group">
         {/* Animated gradient background */}
-        <AnimatedGradientBackground
-          gradientColors={[
-            "#000000", // Deep teal/navy (trust & stability)
-            "#2C5871", // Muted blue (professionalism)
-            "#507D9C", // Soft slate blue (trust & calm)
-            "#A98BBF", // Lavender (connection & empathy)
-            "#D9A8C4", // Blush pink (warmth, values)
-            "#F6C3B3", // Peach (humanity & care)
-            "#FFE5EC", // Light rose (gentleness, connection)
-          ]}
-        />
   
         {/* Subtle animated elements */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -54,8 +41,7 @@ const features = [
             <HeartHandshake className="size-12 text-rose-300 drop-shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:text-rose-400 group-hover:drop-shadow-xl" />
           </div>
         </div>
-  
-      
+ 
       </div>
     ),
   },
@@ -69,7 +55,7 @@ const features = [
     background: (
       <div>
         <h3 className="absolute top-4 w-full px-4 text-center text-lg sm:text-xl md:text-2xl leading-[100%] font-bold tracking-tighter text-balance select-none z-20 md:top-12">
-          I'm very flexible with time{" "}
+          I&apos;m very flexible with time{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#edeffd] to-[#7b9cda] italic">
             zone communications
           </span>
@@ -148,15 +134,6 @@ const features = [
 
 export function BentoFeatureGrid() {
   const [currentTime, setCurrentTime] = useState("India - Loading...");
-  const [copied, setCopied] = useState(false);
-  const email = "dakshsingh.shanu@gmail.com";
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
 
   useEffect(() => {
     const updateTime = () => {

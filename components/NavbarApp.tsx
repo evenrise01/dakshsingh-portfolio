@@ -2,7 +2,6 @@
 import {
   Navbar,
   NavBody,
-  NavItems,
   MobileNav,
   NavbarLogo,
   NavbarButton,
@@ -10,10 +9,11 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import { useKBar } from "kbar"; // Import useKBar hook
 import { CommandIcon } from "lucide-react";
 import { BorderBeam } from "./magicui/border-beam";
+import { usePathname } from "next/navigation"; // Import to get current path
 
 export function NavbarApp() {
   const navItems = [
@@ -30,18 +30,19 @@ export function NavbarApp() {
       link: "/about",
     },
     {
-      name: "Contact",
-      link: "#contact",
-    },
-    {
       name: "Resume",
       link: "#contact",
       isButton: true,
     },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname(); // Get current pathname
 
   // Get query function from kbar
   const { query } = useKBar();
@@ -51,31 +52,79 @@ export function NavbarApp() {
     query.toggle(); // Toggle the kbar command palette
   };
 
-  // Handle scroll and update active section
+  // Initialize active section based on pathname and handle hash changes
+  useEffect(() => {
+    // First check if the current path matches any nav item
+    const pathItem = navItems.find(item => 
+      !item.link.startsWith('#') && 
+      (item.link === pathname || (item.link === '/' && pathname === ''))
+    );
+
+    if (pathItem) {
+      setActiveSection(pathItem.link);
+    } else {
+      // Check if there's a hash in the URL
+      const hash = window.location.hash;
+      if (hash) {
+        const hashItem = navItems.find(item => item.link === hash);
+        if (hashItem) {
+          setActiveSection(hashItem.link);
+        }
+      }
+    }
+  }, [pathname, navItems]);
+
+  // Handle scroll and update active section for hash-based navigation
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.link.replace("#", ""));
+      // Only process hash-based sections
+      const hashSections = navItems
+        .filter(item => item.link.startsWith('#'))
+        .map(item => item.link.replace('#', ''));
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
+      if (hashSections.length === 0) return;
+
+      // Check if we're already on a path-based page
+      const currentPathItem = navItems.find(item => 
+        !item.link.startsWith('#') && 
+        (item.link === pathname || (item.link === '/' && pathname === ''))
+      );
+
+      // If we're on a specific page that's not the homepage, don't change active section based on scroll
+      if (currentPathItem && currentPathItem.link !== '/') return;
+
+      // Find the section currently in view
+      let currentSection = null;
+      let minDistance = Infinity;
+
+      for (const sectionId of hashSections) {
+        const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // If the section is in view
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
+          const distanceFromTop = Math.abs(rect.top);
+          
+          // Find the section closest to the top of the viewport
+          if (distanceFromTop < minDistance) {
+            minDistance = distanceFromTop;
+            currentSection = '#' + sectionId;
           }
         }
+      }
+
+      if (currentSection && (!currentPathItem || currentPathItem.link === '/')) {
+        setActiveSection(currentSection);
+      } else if (currentPathItem) {
+        setActiveSection(currentPathItem.link);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+  }, [pathname, navItems]);
 
   // Handle navigation item click
-  const handleNavItemClick = (sectionId: string) => {
-    setActiveSection(sectionId.replace("#", ""));
+  const handleNavItemClick = (link: SetStateAction<string>) => {
+    setActiveSection(link);
     setIsMobileMenuOpen(false);
   };
 
@@ -83,41 +132,62 @@ export function NavbarApp() {
   const CustomNavItems = () => (
     <div className="flex-1 flex items-center justify-center">
       <div className="relative flex items-center space-x-1">
-        {navItems.map((item, idx) =>
-          item.isButton ? (
-            <NavbarButton
-              key={`nav-item-${idx}`}
-              href={item.link}
-              onClick={() => handleNavItemClick(item.link)}
-              variant="secondary"
-              className="ml-3"
-            >
-              <BorderBeam
-                duration={4}
-                size={50}
-                reverse
-                className="from-transparent via-green-500 to-transparent"
-              />
-              {item.name}
-            </NavbarButton>
-          ) : (
-            <a
-              key={`nav-item-${idx}`}
-              href={item.link}
-              onClick={() => handleNavItemClick(item.link)}
-              className={`relative px-4 py-2 ${
-                activeSection === item.link.replace("#", "")
-                  ? "text-black font-medium dark:text-white"
-                  : "text-neutral-600 dark:text-neutral-300"
-              }`}
-            >
-              {activeSection === item.link.replace("#", "") && (
-                <div className="absolute inset-0 bg-gray-100 rounded-full dark:bg-neutral-800" />
-              )}
-              <span className="relative z-10">{item.name}</span>
-            </a>
-          )
-        )}
+        {navItems.map((item, idx) => {
+          // Special case for Contact item
+          if (item.name === "Contact") {
+            return (
+              <NavbarButton
+                key={`nav-item-${idx}`}
+                href={item.link}
+                onClick={() => handleNavItemClick(item.link)}
+                variant="primary"
+                className="ml-3"
+              >
+                {item.name}
+              </NavbarButton>
+            );
+          }
+          // Regular button items (with border beam effect)
+          else if (item.isButton) {
+            return (
+              <NavbarButton
+                key={`nav-item-${idx}`}
+                href={item.link}
+                onClick={() => handleNavItemClick(item.link)}
+                variant="secondary"
+                className="ml-3"
+              >
+                <BorderBeam
+                  duration={4}
+                  size={50}
+                  reverse
+                  className="from-transparent via-green-500 to-transparent"
+                />
+                {item.name}
+              </NavbarButton>
+            );
+          } 
+          // Regular navigation links
+          else {
+            return (
+              <a
+                key={`nav-item-${idx}`}
+                href={item.link}
+                onClick={() => handleNavItemClick(item.link)}
+                className={`relative px-4 py-2 ${
+                  activeSection === item.link
+                    ? "text-black font-medium dark:text-white"
+                    : "text-neutral-600 dark:text-neutral-300"
+                }`}
+              >
+                {activeSection === item.link && (
+                  <div className="absolute inset-0 bg-gray-100 rounded-full dark:bg-neutral-800" />
+                )}
+                <span className="relative z-10">{item.name}</span>
+              </a>
+            );
+          }
+        })}
       </div>
     </div>
   );
@@ -155,38 +225,59 @@ export function NavbarApp() {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item, idx) =>
-              item.isButton ? (
-                <NavbarButton
-                  key={`mobile-button-${idx}`}
-                  href={item.link}
-                  onClick={() => handleNavItemClick(item.link)}
-                  variant="secondary"
-                  className="w-full"
-                >
-                  <BorderBeam
-                duration={4}
-                size={100}
-                reverse
-                className="from-transparent via-green-500 to-transparent"
-              />
-                  {item.name}
-                </NavbarButton>
-              ) : (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link}
-                  onClick={() => handleNavItemClick(item.link)}
-                  className={`relative w-full py-2 ${
-                    activeSection === item.link.replace("#", "")
-                      ? "text-black font-medium dark:text-white"
-                      : "text-neutral-600 dark:text-neutral-300"
-                  }`}
-                >
-                  <span className="block">{item.name}</span>
-                </a>
-              )
-            )}
+            {navItems.map((item, idx) => {
+              // Special case for Contact item
+              if (item.name === "Contact") {
+                return (
+                  <NavbarButton
+                    key={`mobile-button-${idx}`}
+                    href={item.link}
+                    onClick={() => handleNavItemClick(item.link)}
+                    variant="primary"
+                    className="w-full"
+                  >
+                    {item.name}
+                  </NavbarButton>
+                );
+              }
+              // Regular button items (with border beam effect)
+              else if (item.isButton) {
+                return (
+                  <NavbarButton
+                    key={`mobile-button-${idx}`}
+                    href={item.link}
+                    onClick={() => handleNavItemClick(item.link)}
+                    variant="secondary"
+                    className="w-full"
+                  >
+                    <BorderBeam
+                      duration={4}
+                      size={100}
+                      reverse
+                      className="from-transparent via-green-500 to-transparent"
+                    />
+                    {item.name}
+                  </NavbarButton>
+                );
+              } 
+              // Regular navigation links
+              else {
+                return (
+                  <a
+                    key={`mobile-link-${idx}`}
+                    href={item.link}
+                    onClick={() => handleNavItemClick(item.link)}
+                    className={`relative w-full py-2 ${
+                      activeSection === item.link
+                        ? "text-black font-medium dark:text-white"
+                        : "text-neutral-600 dark:text-neutral-300"
+                    }`}
+                  >
+                    <span className="block">{item.name}</span>
+                  </a>
+                );
+              }
+            })}
             <NavbarButton
               onClick={handleCommandButtonClick}
               variant="secondary"

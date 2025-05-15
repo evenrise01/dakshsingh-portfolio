@@ -23,7 +23,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
-  
+  const entryRef = useRef(null);
+  const isInView = useInView(entryRef, { once: true, amount: 0.2 });
   // Animation variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -86,9 +87,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => {
-          const entryRef = useRef(null);
-          const isInView = useInView(entryRef, { once: true, amount: 0.2 });
-          
+
           return (
           <motion.div
             key={index}

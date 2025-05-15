@@ -148,14 +148,11 @@ const projects: Project[] = [
 
 const ProjectCard = ({
   project,
-  isActive,
-  index,
-  observer,
 }: {
   project: Project;
   isActive: boolean;
   index: number;
-  observer: React.RefObject<HTMLDivElement>;
+  observer: HTMLDivElement | null;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: false, amount: 0.1 });
@@ -171,15 +168,16 @@ const ProjectCard = ({
     >
       <div className="flex flex-col w-full mx-auto sm:mx-2 md:mx-4 lg:mx-10">
         <Link
-          href={`/work/${project.liveUrl}`}
+          href={project.liveUrl}
+          target="_blank"
           draggable="false"
           className="relative cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border border-white/15 bg-[#f2f2f20c] p-1 sm:p-1.5 shadow-2xl md:h-[400px] lg:h-[560px] lg:rounded-3xl lg:p-2"
-          onClick={(e) => {
-            if (!isActive && index !== 0) {
-              e.preventDefault();
-              observer.current?.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
+          // onClick={(e) => {
+          //   if (!isActive && index !== 0) {
+          //     e.preventDefault();
+          //     observer.current?.scrollIntoView({ behavior: "smooth" });
+          //   }
+          // }}
         >
           <div
             className="absolute inset-x-0 top-0 h-px"
@@ -387,7 +385,7 @@ const ProjectDetails = ({
 const AnimatedProjects = () => {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const projectRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   // Handle scroll logic to update active project
   useEffect(() => {
@@ -481,7 +479,9 @@ const AnimatedProjects = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              ref={(el) => (projectRefs.current[index] = el)}
+              ref={(el) => {
+                projectRefs.current[index] = el;
+              }}
               className={`flex flex-col lg:flex-row items-start gap-4 sm:gap-6 lg:gap-8 transition-opacity duration-500 
               ${index <= activeProjectIndex ? "opacity-100" : "opacity-30"}`}
             >
@@ -499,7 +499,7 @@ const AnimatedProjects = () => {
                   project={project}
                   isActive={index <= activeProjectIndex}
                   index={index}
-                  observer={projectRefs.current[index] || null}
+                  observer={projectRefs.current[index]}
                 />
               </div>
             </div>

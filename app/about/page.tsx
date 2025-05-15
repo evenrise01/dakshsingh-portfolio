@@ -2,7 +2,7 @@
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { Timeline } from "@/components/ui/timeline";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin} from "lucide-react";
 import React from "react";
 import GitHubCalendar from "./github-calendar";
 import Contact from "@/components/Contact";
@@ -41,16 +41,16 @@ const AboutPage = () => {
             </ul>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img
+            <Image
               src="/experience-1.jpg"
-              alt="startup template"
+              alt="Abstract image 1"
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
-            <img
+            <Image
               src="/experience-2.jpg"
-              alt="startup template"
+              alt="Abstract image 2"
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
@@ -246,11 +246,11 @@ const AboutPage = () => {
           <p>
             I specialize in modern web frameworks like React, Next.js, and
             Node.js. My approach to coding combines technical excellence with
-            creative problem-solving. I'm constantly exploring new technologies
+            creative problem-solving. I&apos;m constantly exploring new technologies
             and methodologies to enhance my development toolkit.
           </p>
           <p>
-            Clean code is more than a practice—it's a philosophy. I believe in
+            Clean code is more than a practice—it&apos;s a philosophy. I believe in
             writing maintainable, efficient, and well-documented code that
             stands the test of time.
           </p>
@@ -269,7 +269,7 @@ const AboutPage = () => {
             work and life.
           </p>
           <p>
-            Whether it's exploring bustling cities or serene natural landscapes,
+            Whether it&apos;s exploring bustling cities or serene natural landscapes,
             I find inspiration in the diversity of our world.
           </p>
         </div>
@@ -398,10 +398,10 @@ const AboutPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I'm Daksh, a proactive full-stack developer passionate about
+              I&apos;m Daksh, a proactive full-stack developer passionate about
               creating dynamic web experiences. From frontend to backend, I
               thrive on solving complex problems with clean, efficient code. My
-              expertise spans React, Next.js, and Product Management, and I'm
+              expertise spans React, Next.js, and Product Management, and I&apos;m
               always eager to learn more.
             </motion.p>
             <motion.p
@@ -409,8 +409,8 @@ const AboutPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              When I'm not immersed in work, I'm exploring new ideas and staying
-              curious. Life's about balance, and I love embracing every part of
+              When I&apos;m not immersed in work, I&apos;m exploring new ideas and staying
+              curious. Life&apos;s about balance, and I love embracing every part of
               it.
             </motion.p>
             <motion.p

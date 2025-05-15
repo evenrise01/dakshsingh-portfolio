@@ -1,7 +1,7 @@
 import { outfit } from "@/app/fonts";
 import React from "react";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
-import { ChevronRight, ChevronRightCircle, Github, Linkedin, Twitter } from "lucide-react";
+import { ChevronRight,  Github, Linkedin } from "lucide-react";
 import Image from 'next/image'
 const AboutPage = () => {
   return (
@@ -54,8 +54,8 @@ const AboutPage = () => {
         </div> */}
         <div className="relative z-5 mx-auto flex max-w-xl flex-col gap-y-8 text-center text-base font-light tracking-wider text-white/70 lg:mx-0 lg:max-w-[550px] lg:text-left lg:text-lg">
           <p>
-            I'm Daksh — a curious and driven individual who finds joy in both
-            building with code and exploring the world. Whether it's crafting
+            I&apos;m Daksh — a curious and driven individual who finds joy in both
+            building with code and exploring the world. Whether it&apos;s crafting
             intuitive web applications, leveling up at the gym, or diving into a
             new game, I love challenges that spark growth.
           </p>
@@ -65,7 +65,7 @@ const AboutPage = () => {
             environments that reward learning and push boundaries.
           </p>
           <p>
-            Every day is a chance to grow, and I’m here to make it count — one
+            Every day is a chance to grow, and I&apos;m here to make it count — one
             line of code, one rep, one game, or one adventure at a time.
           </p>
           <div className="flex gap-3 w-fit mx-auto -mt-4 lg:mx-0">

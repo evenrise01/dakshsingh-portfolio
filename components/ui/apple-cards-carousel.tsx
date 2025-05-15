@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-import Image, { ImageProps } from "next/image";
+import { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside"
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon, XCircleIcon } from "lucide-react";
 
@@ -161,6 +161,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
   useEffect(() => {
@@ -180,7 +181,7 @@ export const Card = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  useOutsideClick(containerRef, () => handleClose());
+  useOutsideClick(containerRef as React.RefObject<HTMLDivElement>, () => handleClose());
 
   const handleOpen = () => {
     setOpen(true);

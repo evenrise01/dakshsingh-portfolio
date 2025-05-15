@@ -2,6 +2,7 @@ import Contact from "@/components/Contact";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { LucideArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 // app/not-found.js
 export default function NotFound() {
@@ -23,8 +24,8 @@ export default function NotFound() {
             <h1 className="text-primary mt-4 text-5xl font-semibold tracking-tight text-balance sm:text-7xl">Page Not Found</h1>
             <p className="text-muted-foreground mt-6 text-lg font-medium text-pretty sm:text-xl/8">Lost, this page is. In another system, it may be.</p>
             <div className="mt-10 flex flex-col gap-x-6 gap-y-3 sm:flex-row sm:items-center sm:justify-center">
-                <a href="/"><Button variant={"ghost"}><LucideArrowLeft/>Go Back</Button></a>
-                <a href="/"><Button>Take me home</Button></a>
+                <Link href="/"><Button variant={"ghost"}><LucideArrowLeft/>Go Back</Button></Link>
+                <Link href="/"><Button>Take me home</Button></Link>
             </div>
 
         </div>

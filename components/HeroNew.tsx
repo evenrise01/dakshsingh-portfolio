@@ -1,13 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Copy } from "lucide-react";
 import ContactDrawer from "./ui/contact-drawer";
-import { Spotlight } from "./spotlight-new";
 import { ContainerTextFlip } from "./ui/container-text-flip";
 import { SparklesCore } from "./ui/sparkles";
-import { Meteors } from "./magicui/meteors";
+
 
 const HeroNew = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -41,23 +40,6 @@ const HeroNew = () => {
     }
   };
   
-  // Special animation for the "digital experiences" text
-  const highlightTextVariants = {
-    hidden: { 
-      opacity: 0,
-      scale: 0.9,
-      filter: "blur(8px)"
-    },
-    visible: { 
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: { 
-        duration: 1.2,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    }
-  };
   const words = ["creative", "frontend", "full-stack", "website"];
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full overflow-hidden bg-black px-4 md:px-6 relative">
@@ -129,7 +111,7 @@ const HeroNew = () => {
               onClick={() => setIsDrawerOpen(true)}
               className="flex items-center space-x-2 bg-black text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all text-sm sm:text-base"
             >
-              <span>Let's Connect</span>
+              <span>Let&apos;s Connect</span>
             </InteractiveHoverButton>
           </motion.div>
           

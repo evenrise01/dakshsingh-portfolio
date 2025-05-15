@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BorderBeam } from "../magicui/border-beam";
 
-const ContactDrawer = ({ isOpen, onClose }) => {
+const ContactDrawer = ({ isOpen, onClose } : {isOpen: boolean, onClose: () => void}) => {
   const [activeTab, setActiveTab] = useState("connect");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -232,7 +232,7 @@ const ContactDrawer = ({ isOpen, onClose }) => {
                       Message Sent!
                     </h4>
                     <p className="text-gray-400">
-                      I'll get back to you as soon as possible.
+                      I&apos;ll get back to you as soon as possible.
                     </p>
                   </motion.div>
                 ) : (

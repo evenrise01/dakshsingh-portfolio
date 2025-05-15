@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnimatedGradientText } from './magicui/animated-gradient-text'
 import {TestimonialComponent} from './testimonials-columns'
-import Image from "next/image"
+
 const Testimonials = () => {
   return (
     <section id='testimonials' className='my-32 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] md:mt-52'>

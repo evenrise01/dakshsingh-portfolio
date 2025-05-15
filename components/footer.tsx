@@ -2,23 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Blocks, Calendar, Codepen, Github, Link, Linkedin, LucideIcon, LucideUser, Mail, PenBoxIcon, Webhook } from "lucide-react";
-
-interface SocialLink {
-  name: string;
-  href: string;
-}
-
-interface FooterLink {
-  name: string;
-  Icon: LucideIcon | React.FC<React.SVGProps<SVGSVGElement>>;
-  href?: string;
-}
-
-interface FooterColumn {
-  title: string;
-  links: FooterLink[];
-}
+import { Blocks, Calendar,  Link,  LucideUser, Mail, PenBoxIcon, Webhook } from "lucide-react";
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
   copyright: string;

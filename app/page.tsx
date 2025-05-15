@@ -14,11 +14,9 @@ export default function Home() {
     <>
       <main className="relative flex justify-center items-center flex-col">
         <div className="w-full">
-          {/* <Hero /> */}
           <HeroNew/>
           <BentoFeatureGrid />
           <AnimatedProjects />
-          {/* <Experience/> */}
           <SkillPage />
           <AboutPage />
           <Testimonials />

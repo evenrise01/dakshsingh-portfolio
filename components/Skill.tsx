@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { motion, Variants, AnimationProps } from "framer-motion";
+import React from "react";
+import { motion, Variants } from "framer-motion";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { outfit } from "@/app/fonts";
 import { skillTechnologies } from "@/data";
 import Image from "next/image";
 
 const SkillPage = () => {
-  // Use clientSideOnly rendering to avoid hydration errors
-  const [isMounted, setIsMounted] = useState(false);
-  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
-
-  // Only run client-side to prevent hydration mismatch
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   // Stagger animation for tech cards
   const container: Variants = {
@@ -37,19 +29,6 @@ const SkillPage = () => {
         stiffness: 70,
         damping: 12,
       },
-    },
-  };
-
-  // Properly typed title animation
-  const titleAnimationProps: AnimationProps = {
-    animate: {
-      y: [0, -8, 0],
-    },
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      ease: "easeInOut",
     },
   };
 
@@ -119,8 +98,6 @@ const SkillPage = () => {
             key={index}
             className={`${outfit.className} group relative flex items-center justify-center gap-2 rounded-xl border border-white/[0.14] bg-neutral-900/90 backdrop-blur-sm px-4 py-1.5 text-sm text-white/80 lg:text-base`}
             variants={techItem}
-            onHoverStart={() => isMounted && setHoveredTech(tech.name)}
-            onHoverEnd={() => isMounted && setHoveredTech(null)}
             whileHover={{
               scale: 1.05,
               backgroundColor: "rgba(40, 40, 40, 0.95)",
