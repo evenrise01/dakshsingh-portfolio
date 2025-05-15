@@ -73,8 +73,8 @@ const projects: Project[] = [
       text: "text-pink-400",
       bg: "bg-pink-600/20",
     },
-    githubUrl: "",
-    liveUrl: "",
+    githubUrl: "https://github.com/evenrise01/hypermail-new",
+    liveUrl: "https://hypermail-inky.vercel.app/",
   },
   {
     id: "gitmind",
@@ -110,8 +110,8 @@ const projects: Project[] = [
       text: "text-blue-400",
       bg: "bg-blue-600/20",
     },
-    githubUrl: "",
-    liveUrl: "",
+    githubUrl: "https://github.com/evenrise01/gitmind",
+    liveUrl: "https://gitmind.vercel.app/",
   },
   {
     id: "personal-portfolio",
@@ -141,8 +141,8 @@ const projects: Project[] = [
       text: "text-emerald-400",
       bg: "bg-emerald-600/20",
     },
-    githubUrl: "",
-    liveUrl: "",
+    githubUrl: "https://github.com/evenrise01/portfolio-v2",
+    liveUrl: "/",
   },
 ];
 
