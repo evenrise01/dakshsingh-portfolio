@@ -53,7 +53,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["p"],
       keywords: "projects, portfolio, work, showcase, examples, demos",
       section: "Navigation",
-      perform: navigateTo('/projects'),
+      perform: navigateTo('/work'),
     },
     {
       id: "links",
@@ -80,7 +80,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       shortcut: ["b"],
       keywords: "about, bio, profile, information, personal, background, story, bucket list, list",
       section: "Navigation",
-      perform: navigateTo('/about'),
+      perform: navigateTo('/bucket-list'),
     },
     //General Section
     {

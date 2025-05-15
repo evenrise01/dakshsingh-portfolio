@@ -71,7 +71,7 @@ const AboutPage = () => {
           <div className="flex gap-3 w-fit mx-auto -mt-4 lg:mx-0">
             <button data-state="closed" data-slot="tooltip-trigger">
               <a
-                href="https://linkedin.com/in/daksh"
+                href="https://www.linkedin.com/in/daksh-singh-25646918a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-300 transition-colors hover:text-neutral-100"
@@ -82,7 +82,7 @@ const AboutPage = () => {
             </button>
             <button data-state="closed" data-slot="tooltip-trigger">
               <a
-                href="https://github.com/daksh"
+                href="https://github.com/evenrise01"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-300 transition-colors hover:text-neutral-100"
@@ -91,7 +91,7 @@ const AboutPage = () => {
                 <Github />
               </a>
             </button>
-            <button data-state="closed" data-slot="tooltip-trigger">
+            {/* <button data-state="closed" data-slot="tooltip-trigger">
               <a
                 href="https://x.com/daksh"
                 target="_blank"
@@ -101,7 +101,7 @@ const AboutPage = () => {
                 <span className="sr-only">Twitter</span>
                 <Twitter />
               </a>
-            </button>
+            </button> */}
           </div>
         </div>
         <a className="group flex items-center justify-center gap-2 text-neutral-300 group-hover:text-neutral-100 mt-10 lg:justify-start z-10" href="/about">

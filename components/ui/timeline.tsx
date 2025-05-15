@@ -1,11 +1,12 @@
 "use client";
 import { MapPin } from "lucide-react";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
-} from "motion/react";
+  useInView,
+  Variants
+} from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -22,11 +23,45 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
-  console.log("Container ref", containerRef)
+  
+  // Animation variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+  
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+  
+  const textContentVariants: Variants = {
+    hidden: { opacity: 0, x: -10 },
+    show: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
 
   useEffect(() => {
     if (ref.current) {
-      console.log("Current ref", ref.current)
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
     }
@@ -41,34 +76,68 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
+    <motion.div
       className="w-full font-sans px-4 md:px-8"
       ref={containerRef}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
     >
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
-        {data.map((item, index) => (
-          <div
+        {data.map((item, index) => {
+          const entryRef = useRef(null);
+          const isInView = useInView(entryRef, { once: true, amount: 0.2 });
+          
+          return (
+          <motion.div
             key={index}
+            ref={entryRef}
+            variants={itemVariants}
             className="flex justify-start pt-12 md:pt-20 md:gap-8"
           >
             {/* Left side - Company details (sticky on desktop) */}
-            <div className="sticky hidden md:flex flex-col z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-black">
-                <div className="h-4 w-4 rounded-full border border-neutral-300 bg-neutral-200 p-2 dark:border-neutral-700 dark:bg-neutral-800" />
-              </div>
+            <motion.div 
+              className="sticky hidden md:flex flex-col z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full"
+              variants={textContentVariants}
+            >
+              <motion.div 
+                className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-black"
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <motion.div 
+                  className="h-4 w-4 rounded-full border border-neutral-300 bg-neutral-200 p-2 dark:border-neutral-700 dark:bg-neutral-800"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : { scale: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                />
+              </motion.div>
               <div className="md:pl-20">
-                <div className="mt-2 flex flex-col items-start gap-y-2 text-sm">
-                  <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
+                <motion.div 
+                  className="mt-2 flex flex-col items-start gap-y-2 text-sm"
+                  variants={textContentVariants}
+                >
+                  <motion.span 
+                    className="text-xs text-muted-foreground font-medium tracking-wide uppercase"
+                    variants={textContentVariants}
+                  >
                     {item.time}
-                  </span>
-                  <p className="text-lg font-semibold text-black dark:text-white/90">
+                  </motion.span>
+                  <motion.p 
+                    className="text-lg font-semibold text-black dark:text-white/90"
+                    variants={textContentVariants}
+                  >
                     {item.jobTitle}
-                  </p>
-                  <a
+                  </motion.p>
+                  <motion.a
                     href={item.companyLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                    variants={textContentVariants}
+                    whileHover={{ scale: 1.02 }}
                   >
                     <img
                       src={item.companyLogo}
@@ -76,31 +145,51 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                       className="h-5 w-5 rounded-sm object-contain"
                     />
                     <span>{item.companyName}</span>
-                  </a>
-                  <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm">
+                  </motion.a>
+                  <motion.div 
+                    className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm"
+                    variants={textContentVariants}
+                  >
                     <MapPin size={16} />
                     <span>{item.location}</span>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right side - Content (mobile shows company details here) */}
-            <div className="relative pr-4 pl-20 md:pl-4 w-full">
+            <motion.div 
+              className="relative pr-4 pl-20 md:pl-4 w-full"
+              variants={textContentVariants}
+            >
               {/* Mobile-only company details */}
-              <div className="md:hidden mb-4 text-2xl block">
-                <div className="mt-2 flex flex-col items-start gap-y-2 text-sm font-light">
-                  <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
+              <motion.div 
+                className="md:hidden mb-4 text-2xl block"
+                variants={textContentVariants}
+              >
+                <motion.div 
+                  className="mt-2 flex flex-col items-start gap-y-2 text-sm font-light"
+                  variants={textContentVariants}
+                >
+                  <motion.span 
+                    className="text-xs text-muted-foreground font-medium tracking-wide uppercase"
+                    variants={textContentVariants}
+                  >
                     {item.time}
-                  </span>
-                  <p className="text-lg font-semibold text-black dark:text-white/90">
+                  </motion.span>
+                  <motion.p 
+                    className="text-lg font-semibold text-black dark:text-white/90"
+                    variants={textContentVariants}
+                  >
                     {item.jobTitle}
-                  </p>
-                  <a
+                  </motion.p>
+                  <motion.a
                     href={item.companyLink}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer" 
                     className="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                    variants={textContentVariants}
+                    whileHover={{ scale: 1.02 }}
                   >
                     <img
                       src={item.companyLogo}
@@ -108,19 +197,28 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                       className="h-5 w-5 rounded-sm object-contain"
                     />
                     <span>{item.companyName}</span>
-                  </a>
-                  <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm">
+                  </motion.a>
+                  <motion.div 
+                    className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-sm"
+                    variants={textContentVariants}
+                  >
                     <MapPin size={16} />
                     <span>{item.location}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="prose prose-sm dark:prose-invert max-w-none">
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div 
+                className="prose prose-sm dark:prose-invert max-w-none"
+                variants={textContentVariants}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 {item.content}
-              </div>
-            </div>
-          </div>
-        ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )})}
 
         {/* Timeline line */}
         <div
@@ -136,6 +234,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

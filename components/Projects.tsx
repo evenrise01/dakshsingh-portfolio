@@ -428,7 +428,7 @@ const AnimatedProjects = () => {
         <div className="h-[80vh] min-h-[500px] max-h-[800px] w-full relative overflow-hidden">
           {/* Background image */}
           <Image
-            src="/nasa-Q1p7bh3SHj8-unsplash.jpg"
+            src="/work-bg.jpg"
             alt="Developer background"
             className="object-cover object-center pointer-events-none select-none"
             priority
