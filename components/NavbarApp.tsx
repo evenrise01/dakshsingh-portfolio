@@ -14,6 +14,7 @@ import { useKBar } from "kbar"; // Import useKBar hook
 import { CommandIcon } from "lucide-react";
 import { BorderBeam } from "./magicui/border-beam";
 import { usePathname } from "next/navigation"; // Import to get current path
+import ContactDrawer from "./ui/contact-drawer";
 
 export function NavbarApp() {
   const navItems = [
@@ -41,6 +42,7 @@ export function NavbarApp() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname(); // Get current pathname
 
@@ -138,8 +140,7 @@ export function NavbarApp() {
             return (
               <NavbarButton
                 key={`nav-item-${idx}`}
-                href={item.link}
-                onClick={() => handleNavItemClick(item.link)}
+                onClick={() => setIsDrawerOpen(true)}
                 variant="primary"
                 className="ml-3"
               >
@@ -147,6 +148,7 @@ export function NavbarApp() {
               </NavbarButton>
             );
           }
+          
           // Regular button items (with border beam effect)
           else if (item.isButton) {
             return (
@@ -160,7 +162,6 @@ export function NavbarApp() {
                 <BorderBeam
                   duration={4}
                   size={50}
-                  reverse
                   className="from-transparent via-green-500 to-transparent"
                 />
                 {item.name}
@@ -231,8 +232,7 @@ export function NavbarApp() {
                 return (
                   <NavbarButton
                     key={`mobile-button-${idx}`}
-                    href={item.link}
-                    onClick={() => handleNavItemClick(item.link)}
+                    onClick={() => setIsDrawerOpen(true)}
                     variant="primary"
                     className="w-full"
                   >
@@ -288,6 +288,10 @@ export function NavbarApp() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
+      <ContactDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </div>
   );
 }
