@@ -8,7 +8,7 @@ import Image from "next/image";
 const SkillPage = () => {
   // Use clientSideOnly rendering to avoid hydration errors
   const [isMounted, setIsMounted] = useState(false);
-  const [hoveredTech, setHoveredTech] = useState(null);
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   // Only run client-side to prevent hydration mismatch
   useEffect(() => {

@@ -1,30 +1,61 @@
-import { Bot, HeartHandshake, Layout, MapPin } from "lucide-react";
+import {
+  Bot,
+  Handshake,
+  HandshakeIcon,
+  HeartHandshake,
+  Layout,
+  MapPin,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "./magicui/bento-grid";
 import { Marquee } from "./magicui/marquee";
 import Earth from "./ui/globe";
-import { BorderBeam } from "./magicui/border-beam";
 import { IconCloud } from "./magicui/icon-cloud";
 import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
 import { ContactCard } from "./ContactCardBentoItem";
-import Image from "next/image"
+import AnimatedGradientBackground from "./ui/animated-gradient-background";
+
 const images = slugs.map(
   (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
 );
 
 const features = [
   {
-    Icon: HeartHandshake,
+    Icon: Handshake,
     name: "Collaboration",
-    description:
-      "I prioritize client collaboration, fostering open communication",
+    description: "I prioritize client collaboration, fostering open communication",
     href: "#work",
     cta: "View recent work",
     className: "col-span-6 md:col-span-6 lg:col-span-4",
     background: (
-      <div className="size-full">
-       
+      <div className="absolute inset-0 overflow-hidden group">
+        {/* Animated gradient background */}
+        <AnimatedGradientBackground
+          gradientColors={[
+            "#000000", // Deep teal/navy (trust & stability)
+            "#2C5871", // Muted blue (professionalism)
+            "#507D9C", // Soft slate blue (trust & calm)
+            "#A98BBF", // Lavender (connection & empathy)
+            "#D9A8C4", // Blush pink (warmth, values)
+            "#F6C3B3", // Peach (humanity & care)
+            "#FFE5EC", // Light rose (gentleness, connection)
+          ]}
+        />
+  
+        {/* Subtle animated elements */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* Hover-triggered pulsing circles */}
+          <div className="absolute size-64 rounded-full border border-blue-300/20 group-hover:animate-ping transition-all duration-300 opacity-0 group-hover:opacity-100" />
+          <div className="absolute size-56 rounded-full border border-purple-300/20 group-hover:animate-ping transition-all duration-300 delay-150 opacity-0 group-hover:opacity-100" />
+  
+          {/* Centered handshake icon with hover effects */}
+          <div className="relative z-10 flex items-center justify-center size-24 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 transition-all duration-500 group-hover:bg-white/15 group-hover:border-white/20">
+            <HeartHandshake className="size-12 text-rose-300 drop-shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:text-rose-400 group-hover:drop-shadow-xl" />
+          </div>
+        </div>
+  
+      
       </div>
     ),
   },
@@ -71,18 +102,9 @@ const features = [
     className: "col-span-6 md:col-span-3 lg:col-span-2",
     href: "N/A",
     background: (
-      <div><BorderBeam
-      duration={6}
-      size={250}
-      className="from-transparent via-emerald-500 to-transparent"
-    />
-    <BorderBeam
-      duration={6}
-      delay={3}
-      size={250}
-      className="from-transparent via-amber-500 to-transparent"
-    /><ContactCard /></div>
-      
+      <div>
+        <ContactCard />
+      </div>
     ),
   },
   {
@@ -128,7 +150,7 @@ export function BentoFeatureGrid() {
   const [currentTime, setCurrentTime] = useState("India - Loading...");
   const [copied, setCopied] = useState(false);
   const email = "dakshsingh.shanu@gmail.com";
-  
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email).then(() => {
       setCopied(true);
@@ -136,7 +158,6 @@ export function BentoFeatureGrid() {
     });
   };
 
-  
   useEffect(() => {
     const updateTime = () => {
       const options: Intl.DateTimeFormatOptions = {
