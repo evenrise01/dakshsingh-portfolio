@@ -59,7 +59,7 @@ export const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
           {
             name: "Projects",
             Icon: Webhook,
-            href: "/projects",
+            href: "/work",
           },
         
         ],
