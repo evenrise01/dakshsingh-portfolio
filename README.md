@@ -1,6 +1,6 @@
-# ✨ Personal Portfolio - [Your Name]
+# ✨ Personal Portfolio - [Daksh Singh]
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Now-brightgreen?style=for-the-badge&logo=vercel)](/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Now-brightgreen?style=for-the-badge&logo=vercel)](https://dakshsingh-portfolio.vercel.app/)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge&logo=github)](https://github.com/evenrise01/portfolio-v2)
 [![GitHub issues](https://img.shields.io/github/issues/evenrise01/portfolio-v2?style=for-the-badge)](https://github.com/evenrise01/portfolio-v2/issues)
 [![GitHub forks](https://img.shields.io/github/forks/evenrise01/portfolio-v2?style=for-the-badge)](https://github.com/evenrise01/portfolio-v2/network)
@@ -12,15 +12,7 @@
 
 Welcome to my personal portfolio! This project showcases modern web design principles and a focus on user experience. It features sleek layouts, smooth animations, and highlights my skills, projects, and journey as a developer.
 
-*(**Note to user:** Consider replacing "[Your Name]" in the title above with your actual name. Update the "Live Demo" badge URL from "/" to the actual deployed URL of your portfolio if it's not at the root of a domain pointed to by Vercel/Netlify, etc.)*
 
----
-
-## 🖼️ Visual Preview
-
-*(**Note to user:** To include the preview image, ensure `/personal-portfolio-project.png` is in your repository, or upload it and use a direct link. You can display it like this:*
-*`<p align="center"><img src="./personal-portfolio-project.png" alt="Personal Portfolio Preview" width="700"></p>`*
-*Replace `./personal-portfolio-project.png` with the correct path or URL if needed.*)
 
 ---
 
@@ -49,7 +41,7 @@ The following technologies and libraries were instrumental in building this port
 | **Components** | ![Shadcn UI](https://cdn.simpleicons.org/shadcnui/000000) Shadcn UI         | Re-usable and accessible UI components               |
 | **Animation** | ![Framer Motion](https://cdn.simpleicons.org/framer/0055FF) Framer Motion   | Production-ready motion library for React            |
 
-*(Note: Icon colors are illustrative and default to common representations. Ensure links are active or adjust as needed.)*
+*(Note: Icon colors are illustrative and default to common representations..)*
 
 ---
 
