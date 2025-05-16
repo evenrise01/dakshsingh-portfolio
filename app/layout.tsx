@@ -5,7 +5,7 @@ import Kbar from "@/components/kbar";
 import { Outfit } from 'next/font/google';
 import { NavbarApp } from "@/components/NavbarApp";
 import { Tangerine } from 'next/font/google'; // Replace Meow_Script with Tangerine
-
+import { Analytics } from "@vercel/analytics/next"
 // Remove Meow_Script and add Tangerine instead
 const tangerine = Tangerine({ 
   subsets: ['latin'],
@@ -41,6 +41,7 @@ export default function RootLayout({
           <Kbar>
             <NavbarApp/>
             {children}
+            <Analytics/>
           </Kbar>
         </ThemeProvider>
       </body>
