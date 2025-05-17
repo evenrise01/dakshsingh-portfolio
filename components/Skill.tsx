@@ -48,7 +48,7 @@ const SkillPage = () => {
             className="object-cover object-center pointer-events-none select-none"
             sizes="100vw"
             quality={90}
-            priority
+            loading="lazy"
             fill
           />
 
@@ -96,7 +96,7 @@ const SkillPage = () => {
         {skillTechnologies.map((tech, index) => (
           <motion.div
             key={index}
-            className={`${outfit.className} group relative flex items-center justify-center gap-2 rounded-xl border border-white/[0.14] bg-neutral-900/90 backdrop-blur-sm px-4 py-1.5 text-sm text-white/80 lg:text-base`}
+            className={`${outfit.className} group relative flex items-center justify-center gap-2 rounded-xl border border-white/[0.14] bg-neutral-900/90 px-4 py-1.5 text-sm text-white/80 lg:text-base`}
             variants={techItem}
             whileHover={{
               scale: 1.05,
@@ -110,13 +110,11 @@ const SkillPage = () => {
               damping: 15,
             }}
           >
-            <motion.img
+            <img
               height="18"
               width="18"
               alt={tech.name}
               src={tech.icon}
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
             />
             <div className="relative">
               {/* Gradient text effect on hover using Tailwind classes */}
