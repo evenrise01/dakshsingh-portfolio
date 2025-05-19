@@ -32,7 +32,7 @@ export function NavbarApp() {
     },
     {
       name: "Resume",
-      link: "#contact",
+      link: "/resume/resume-daksh-singh.pdf",
       isButton: true,
     },
     {
@@ -158,6 +158,7 @@ export function NavbarApp() {
                 onClick={() => handleNavItemClick(item.link)}
                 variant="secondary"
                 className="ml-3"
+                target="_blank"
               >
                 <BorderBeam
                   duration={4}

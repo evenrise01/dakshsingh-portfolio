@@ -28,11 +28,21 @@ export default function KBar({ children }: { children: React.ReactNode }) {
 
   // Resume handler
   const handleResumeView = useCallback(() => {
-    // You can either navigate to a dedicated resume page
-    // router.push('/resume');
-    
-    // Or open a PDF file in a new tab
-    window.open('/resume.pdf', '_blank');
+    try {
+      // Construct URL properly
+      const baseUrl = window.location.origin;
+      const pdfUrl = new URL('/resume/resume-daksh-singh.pdf', baseUrl).href;
+      
+      const newWindow = window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+      
+      // Fallback if popup is blocked
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        window.location.href = pdfUrl;
+      }
+    } catch (error) {
+      console.error('Failed to open resume:', error);
+      // Optionally show user feedback
+    }
   }, []);
 
   const actions: Action[] = [

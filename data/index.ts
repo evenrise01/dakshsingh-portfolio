@@ -1,12 +1,5 @@
-import { Blocks, Calendar, CodeXml, Codepen, CreditCard, Github, Handshake, Link, Linkedin, LucideUser, PenBoxIcon, Scale, Webhook } from "lucide-react";
+import {  Codepen, Github, Linkedin } from "lucide-react";
 
-export const navItems = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Resume", link: "#resume" },
-    { name: "Contact", link: "#contact" },
-
-  ];
 
   export const slugs = [
     "typescript",
