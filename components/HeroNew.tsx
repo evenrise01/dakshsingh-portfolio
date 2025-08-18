@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, easeOut} from "framer-motion";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Copy } from "lucide-react";
 import ContactDrawer from "./ui/contact-drawer";
@@ -23,7 +23,7 @@ const HeroNew = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: easeOut }
     },
   };
 

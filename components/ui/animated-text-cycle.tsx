@@ -1,8 +1,7 @@
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { easeIn, easeOut, motion, AnimatePresence } from "framer-motion";
 import { AuroraText } from "../magicui/aurora-text";
-
 interface AnimatedTextCycleProps {
   words: string[];
   interval?: number;
@@ -40,10 +39,10 @@ export default function AnimatedTextCycle({
 
   // Container animation for the whole word
   const containerVariants = {
-    hidden: { 
+    hidden: {
       y: -20,
       opacity: 0,
-      filter: "blur(8px)"
+      filter: "blur(8px)",
     },
     visible: {
       y: 0,
@@ -51,25 +50,25 @@ export default function AnimatedTextCycle({
       filter: "blur(0px)",
       transition: {
         duration: 0.4,
-        ease: "easeOut"
-      }
+        ease: easeOut,
+      },
     },
-    exit: { 
+    exit: {
       y: 20,
       opacity: 0,
       filter: "blur(8px)",
-      transition: { 
-        duration: 0.3, 
-        ease: "easeIn"
-      }
+      transition: {
+        duration: 0.3,
+        ease: easeIn,
+      },
     },
   };
 
   return (
     <>
       {/* Hidden measurement div with all words rendered */}
-      <div 
-        ref={measureRef} 
+      <div
+        ref={measureRef}
         aria-hidden="true"
         className="absolute opacity-0 pointer-events-none"
         style={{ visibility: "hidden" }}
@@ -82,16 +81,16 @@ export default function AnimatedTextCycle({
       </div>
 
       {/* Visible animated word */}
-      <motion.span 
+      <motion.span
         className="relative inline-block"
-        animate={{ 
+        animate={{
           width,
-          transition: { 
+          transition: {
             type: "spring",
             stiffness: 150,
             damping: 15,
             mass: 1.2,
-          }
+          },
         }}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -110,4 +109,4 @@ export default function AnimatedTextCycle({
       </motion.span>
     </>
   );
-} 
+}
