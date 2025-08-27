@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
-
+import Image from "next/image";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -235,7 +235,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img
+     <Image
         src="/ds-logo.jpg"
         alt="logo"
         width={30}
@@ -259,10 +259,8 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
-} & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+} & Record<string, any>) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
@@ -275,12 +273,15 @@ export const NavbarButton = ({
       "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
   };
 
+  const combinedProps = {
+    ...props,
+    className: cn(baseStyles, variantStyles[variant], className),
+    ...(href ? { href } : {})
+  };
+
   return (
-    <Tag
-      href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
-    >
+    //@ts-expect-error unsure
+    <Tag {...combinedProps}>
       {children}
     </Tag>
   );

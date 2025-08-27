@@ -139,3 +139,27 @@ import {  Codepen, Github, Linkedin } from "lucide-react";
       body: "A flexible notification system supports email, in-app, and push alerts. It keeps users informed about updates, actions, and reminders without overwhelming them.",
     },
   ];
+
+ export const navItems = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Work",
+      link: "/work",
+    },
+    {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "Resume",
+      link: "/resume/resume-daksh-singh.pdf",
+      isButton: true,
+    },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
+  ];

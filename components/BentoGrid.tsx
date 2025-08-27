@@ -8,7 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "./magicui/bento-grid";
 import { Marquee } from "./magicui/marquee";
-import Earth from "./ui/globe";
+import Earth from "./ui/earth";
 import { IconCloud } from "./magicui/icon-cloud";
 import { files, slugs } from "@/data";
 import { useEffect, useState } from "react";
@@ -61,11 +61,8 @@ const features = [
           </span>
         </h3>
         <div className="flex items-center justify-center absolute w-full h-full">
-          <div className="max-w-7xl w-full relative overflow-hidden h-[200px] sm:h-[300px] md:h-[500px] px-4">
-            <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent z-40" />
-            <div className="absolute w-full h-full bottom-0 top-0 sm:top-6 right-0 sm:right-1 transform translate-y-0 sm:translate-y-8 scale-[0.7] sm:scale-100">
-              <Earth scale={1.1} dark={1} />
-            </div>
+          <div className="max-w-7xl w-full relative overflow-hidden sm:h-[250px] md:h-[600px] px-4">
+              <Earth/>
           </div>
         </div>
       </div>

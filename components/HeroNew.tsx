@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
-import { motion, easeOut} from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Copy } from "lucide-react";
 import ContactDrawer from "./ui/contact-drawer";
 import { ContainerTextFlip } from "./ui/container-text-flip";
-import DarkVeil from "./ui/dark-veil";
 
 const HeroNew = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -23,7 +22,7 @@ const HeroNew = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: easeOut }
+      transition: { duration: 0.8, ease: easeOut },
     },
   };
 
@@ -39,14 +38,10 @@ const HeroNew = () => {
     },
   };
 
-  const words = ["creative", "frontend", "full-stack", "website"];
+const words = ["creative", "frontend", "full-stack", "website"];
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden bg-black px-4 md:px-6">
-      {/* Dark veil background, covers full hero */}
-      <div className="absolute inset-0 z-0">
-        <DarkVeil />
-      </div>
+    <div className="relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden bg-black">
 
       <motion.div
         className="relative z-10 flex flex-col items-center justify-center w-full max-w-5xl mx-auto mt-10 md:mt-20"

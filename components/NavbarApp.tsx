@@ -15,31 +15,9 @@ import { CommandIcon } from "lucide-react";
 import { BorderBeam } from "./magicui/border-beam";
 import { usePathname } from "next/navigation"; // Import to get current path
 import ContactDrawer from "./ui/contact-drawer";
+import { navItems } from "@/data";
 
 export function NavbarApp() {
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Work",
-      link: "/work",
-    },
-    {
-      name: "About",
-      link: "/about",
-    },
-    {
-      name: "Resume",
-      link: "/resume/resume-daksh-singh.pdf",
-      isButton: true,
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -74,7 +52,7 @@ export function NavbarApp() {
         }
       }
     }
-  }, [pathname, navItems]);
+  }, [pathname]);
 
   // Handle scroll and update active section for hash-based navigation
   useEffect(() => {
@@ -122,7 +100,7 @@ export function NavbarApp() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname, navItems]);
+  }, [pathname]);
 
   // Handle navigation item click
   const handleNavItemClick = (link: SetStateAction<string>) => {
